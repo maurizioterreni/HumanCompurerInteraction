@@ -3050,6 +3050,10 @@ tbody.collapse.show {
   left: 0;
   padding: 1.25rem; }
 
+.imgWeather{
+  height: 200px;
+}
+
 .card-img {
   width: 100%;
   border-radius: calc(0.25rem - 1px); }

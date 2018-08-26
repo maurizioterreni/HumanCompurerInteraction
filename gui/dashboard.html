@@ -2,9 +2,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="css/dashboard.css" type="text/css"> </head>
+  <link rel="stylesheet" href="css/dashboard.css" type="text/css">
+  <script src="js/dashboard.js"></script>
+</head>
 
-<body>
+<body onload="loadCard()">
   <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -23,100 +25,8 @@
     </div>
   </nav>
   <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header"> Stazione meteo 1
-              <br> </div>
-            <div class="card-body">
-              <h4 class="text-center">Card title</h4>
-              <img class="img-fluid d-block mx-auto" style="margin:auto;" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" width="200" height="200">
-              <div class="row text-center my-4">
-                <div class="col-md-6 text-center">
-                  <a class="btn btn-primary" href="#">Maps
-                    <br>
-                  </a>
-                </div>
-                <div class="col-md-6">
-                  <a class="btn btn-primary" href="#">Open
-                    <br>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header"> Stazione meteo 1
-              <br> </div>
-            <div class="card-body">
-              <h4 class="text-center">Card title</h4>
-              <img class="img-fluid d-block mx-auto" style="margin:auto;" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" width="200" height="200">
-              <div class="row text-center my-4">
-                <div class="col-md-6 text-center">
-                  <a class="btn btn-primary" href="#">Maps
-                    <br>
-                  </a>
-                </div>
-                <div class="col-md-6">
-                  <a class="btn btn-primary" href="#">Open
-                    <br>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header"> Stazione meteo 1
-              <br> </div>
-            <div class="card-body">
-              <h4 class="text-center">Card title</h4>
-              <img class="img-fluid d-block mx-auto" style="margin:auto;" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" width="200" height="200">
-              <div class="row text-center my-4">
-                <div class="col-md-6 text-center">
-                  <a class="btn btn-primary" href="#">Maps
-                    <br>
-                  </a>
-                </div>
-                <div class="col-md-6">
-                  <a class="btn btn-primary" href="#">Open
-                    <br>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header"> Stazione meteo 1
-              <br> </div>
-            <div class="card-body">
-              <h4 class="text-center">Card title</h4>
-              <img class="img-fluid d-block mx-auto" style="margin:auto;" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" width="200" height="200">
-              <div class="row text-center my-4">
-                <div class="col-md-6 text-center">
-                  <a class="btn btn-primary" href="#">Maps
-                    <br>
-                  </a>
-                </div>
-                <div class="col-md-6">
-                  <a class="btn btn-primary" href="#">Open
-                    <br>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="container" id = "containerDashboard">
+      
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
