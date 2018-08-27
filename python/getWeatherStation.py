@@ -5,7 +5,8 @@ Created on 21 lug 2018
 '''
 import json
 import sys
+import requests
 
-
-print(rapid.call('http://maurizioterreni.altervista.org/rest/services/weatherstation/read.php'))
+response = requests.get('http://maurizioterreni.altervista.org/rest/services/weatherstation/read.php')
+print(response.json() + " hello")
 sys.stdout.flush()
