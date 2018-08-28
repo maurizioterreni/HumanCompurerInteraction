@@ -1,7 +1,5 @@
-const spawn = require("child_process").spawn;
-const pythonProcess = spawn('python',["../../python/getWeatherStation.py"]);
-
-
-pythonProcess.stdout.on('data', (data) => {
-  console.log(data);
+var PythonShell = require('python-shell');
+PythonShell.run('../../python/getWeatherStation.py', function (err, results) {
+  if (err) throw err;
+  console.log(results.toString());
 });

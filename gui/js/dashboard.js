@@ -1,28 +1,11 @@
 function loadCard() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-         // Typical action to be performed when the document is ready:
-          var response = xhttp.responseText;
-          var obj = JSON.parse(response);
-          console.log("ok"+response);
-          console.log(obj);
-          var html = '';
-          for(var k in obj) {
-           if(k%2 == 0){
-             html += '<div class="row">';
-             html += '<div class="col-md-6"><div class="card"><div class="card-header"> '+obj[k].description+'<br></div><div class="card-body"><h4 class="text-center">Card title</h4><img class="img-fluid d-block mx-auto imgWeather" style="margin:auto;" src="'+obj[k].image+'"><div class="row text-center my-4"><div class="col-md-6 text-center"><a class="btn btn-primary" href="#">Maps<br></a></div><div class="col-md-6"><a class="btn btn-primary" href="#">Open<br></a></div></div></div></div></div>';
-           }else{
-             html += '<div class="col-md-6"><div class="card"><div class="card-header"> '+obj[k].description+'<br></div><div class="card-body"><h4 class="text-center">Card title</h4><img class="img-fluid d-block mx-auto imgWeather" style="margin:auto;" src="'+obj[k].image+'"><div class="row text-center my-4"><div class="col-md-6 text-center"><a class="btn btn-primary" href="#">Maps<br></a></div><div class="col-md-6"><a class="btn btn-primary" href="#">Open<br></a></div></div></div></div></div>';
-             html += '</div>';
-           }
-          }
-          document.getElementById('containerDashboard').innerHTML = html;
-      }
-  };
-  xhttp.open("GET", "http://maurizioterreni.altervista.org/rest/services/weatherstation/read.php", true);
+  var PythonShell = require('python-shell');
+  PythonShell.run('/python/getWeatherStation.py', function (err, results) {
+    if (err) throw err;
+    console.log(results.toString());
+    document.getElementById('containerDashboard').innerHTML = results.toString();
+  });
 
-  xhttp.send();
 }
 
 
