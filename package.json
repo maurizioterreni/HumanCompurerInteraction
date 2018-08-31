@@ -20,6 +20,7 @@
     "electron": "^1.8.4"
   },
   "dependencies": {
+    "jquery": "^3.3.1",
     "python-shell": "^0.5.0",
     "request": "^2.88.0",
     "sweetalert": "^2.1.0"

@@ -13,6 +13,10 @@ var nodeConsole = require('console');
 var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
 var request = require('request');
 
+$("#buttonOpenMaps").on("click", function(){
+  $("#mapsModal").modal('show');
+});
+
 function loadCard() {
     //document.getElementById('containerDashboard').innerHTML = "<div class=\"container\" id=\"containerDashboard\"><div style=\"width:100%; text-align: center; margin-top:20px;\"><img src=\"../images/loading-icon.gif\"/></div></div>";
     //myConsole.log('i am here');
@@ -27,8 +31,8 @@ function loadCard() {
           div = '<div class="col-md-6"><div class="card"><div class="card-header"> '
                + obj[k].description +'<br></div><div class="card-body"><h4 class="text-center"> '
                + 'Card title</h4><img class="img-fluid d-block mx-auto imgWeather" style="margin:auto;" src="'
-               +obj[k].image+'"><div class="row text-center my-4"><div class="col-md-6 text-center"><a class="btn btn-primary" href="#">'
-               +'Maps<br></a></div><div class="col-md-6"><a class="btn btn-primary" href="#">Open<br></a></div></div></div></div></div>';
+               +obj[k].image+'"><div class="row text-center my-4"><div class="col-md-6 text-center"><button type="button" id="buttonOpenMaps" data-toggle="modal" data-target="#mapsModal" class="btn btn-primary" href="#">'
+               +'Maps<br></button></div><div class="col-md-6"><a class="btn btn-primary" >Open<br></a></div></div></div></div></div>';
            if(k%2 == 0){
              html += '<div class="row">';
              html += div;
@@ -45,6 +49,9 @@ function loadCard() {
   }
 
 
+  $( document ).ready(function() {
+      myConsole.log( "ready!" );
+  });
 
 
 
