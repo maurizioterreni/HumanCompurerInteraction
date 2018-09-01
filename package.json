@@ -1,28 +1,29 @@
 {
   "name": "WeatherStation",
+  "productName": "WeatherStation",
   "version": "1.0.0",
-  "description": "WeatherStation",
+  "description": "A little desktop application for HumanCompurerInteraction",
   "main": "main.js",
-  "scripts": {
-    "start": "electron ."
-  },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "repository": "https://github.com/patrickmoffitt/bootstrap-example",
+  "author": "Maurizio Terreni",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^1.8.4"
+    "electron": "^2.0.8"
+  },
+  "scripts": {
+    "start": "electron .",
+    "start-mac": "/Applications/Electron.app/Contents/MacOS/Electron ."
   },
   "dependencies": {
-    "jquery": "^3.3.1",
-    "python-shell": "^0.5.0",
     "request": "^2.88.0",
-    "sweetalert": "^2.1.0"
+    "bootstrap": "^4.0.0-beta.3",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.9",
+    "tether": "^1.4.0"
+  },
+  "standard": {
+    "globals": [
+      "$"
+    ]
   }
 }
