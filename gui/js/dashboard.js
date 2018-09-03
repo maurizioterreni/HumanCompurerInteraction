@@ -8,7 +8,7 @@ window.Bootstrap = require('bootstrap');
 
 $( document ).ready(function() {
   //document.getElementById('containerDashboard').innerHTML = "<div class=\"container\" id=\"containerDashboard\"><div style=\"width:100%; text-align: center; margin-top:20px;\"><img src=\"../images/loading-icon.gif\"/></div></div>";
-  //myConsole.log('i am here');
+  myConsole.log('i am here');
     request('http://maurizioterreni.altervista.org/rest/services/weatherstation/read.php', function (error, response, body) {
         myConsole.log('error:', error); // Print the error if one occurred
         myConsole.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -38,19 +38,24 @@ $( document ).ready(function() {
 
 
   $("#buttonOpenMaps").on("click", function(){
+    console.log('modal:');
+    myConsole.log('error:');
     $("#mapsModal").modal('show');
   });
 
-  $('#buttonOpenSensor').on("click", function(){
+  $('#buttonOpenSensor').click(function() {
+    console.log('error:')
     $('#containerDashboard').html(ciao);
+
   });
 
 });
 
+/*
 $(function() {
     $("#map").googleMap({
       zoom: 10, // Initial zoom level (optional)
       coords: [48.895651, 2.290569], // Map center (optional)
       type: "ROADMAP" // Map type (optional)
     });
-})
+})*/
