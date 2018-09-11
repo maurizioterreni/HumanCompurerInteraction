@@ -1,0 +1,35 @@
+115200
+AT+RST
+AT+CWMODE=1
+AT+CWJAP="TIM-29310447","7hkDyc24hznHl3VuYTrPVJv7"
+
+
+
+AT+CIPSTART="TCP","www.maurizioterreni.altervista.org",80
+
+
+AT+CIPSEND=22
+
+POST /rest/services/measure/post.php HTTP/1.0\r\n Content-Type: application/json\r\n{"sensorId": "1", "quantity": "2" ,"unitMeasureId": "3"}
+
+
+POST /rest/services/measure/post.php HTTP/1.1\r\nHost: maurizioterreni.altervista.org\r\nAccept: maurizioterreni.altervista.org\r\nCache-Control: no-cache\r\nContent-Type: application/json\r\n\r\n{"sensorId": "1", "quantity": "2" ,"unitMeasureId": "3"}
+
+
+"GET /test.php HTTP/1.0"
+
+POST /rest/services/measure/post.php HTTP/1.0\nHost: maurizioterreni.altervista.org\nContent-Length: 56\nContent-Type: application/json\n\n{"sensorId": "1", "quantity": "2" ,"unitMeasureId": "3"}
+
+AT+CIPMODE=1
+
+AT+CIPCLOSE
+
+
+
+POST /rest/services/measure/post.php HTTP/1.1\r\nHost: maurizioterreni.altervista.org\r\nAccept: application/json\r\nContent-Type: application/json\r\n\r\n{"sensorId": "1","quantity": "1.56","unitMeasureId": "1"}\r\n
+
+
+AT+CIPSTART="TCP","jsonplaceholder.typicode.com",80
+
+
+GET /users/1 HTTP/1.1\r\n

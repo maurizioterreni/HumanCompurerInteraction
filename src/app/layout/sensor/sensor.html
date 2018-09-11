@@ -1,0 +1,51 @@
+<!--<div class="container" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <div class="item item-5" fxFlex *ngFor="let sensor of sensors; let i = index">
+			<mat-card class="sensor-card" style="text-align:center;">
+        <div class="sensor-card-content">
+  					<mat-card-content>
+  						<p>{{sensor.title}}</p>
+              <mat-grid-list cols="3" style="margin-top:40px" rowHeight="200px">
+
+        				<mat-grid-tile [colspan]="2" [rowspan]="1">
+      						<div *ngIf="sensor.measure">
+      							<mat-list>
+        							<mat-list-item  matTooltip="{{sensor.measure.dateTime | date: 'd/M/yy, H:mm'}}">{{sensor.measure.quantity | number:'.1'}}{{sensor.measure.symbol}}</mat-list-item>
+        							<mat-divider></mat-divider>
+        							<mat-list-item>
+      									<p *ngIf="sensor.maxMeasure else nan_max_mex" matTooltip="{{sensor.maxMeasure.dateTime | date: 'd/M/yy, H:mm'}}" class="max-temperature">{{sensor.maxMeasure.quantity | number:'.1'}}{{sensor.maxMeasure.symbol}}</p><ng-template #nan_max_mex ><p class="max-temperature" matTooltip="no data">NaN</p></ng-template>
+      														&nbsp;&nbsp;|&nbsp;&nbsp;
+      									<p *ngIf="sensor.minMeasure else nan_min_mex" matTooltip="{{sensor.minMeasure.dateTime | date: 'd/M/yy, H:mm'}}" class="min-temperature">{{sensor.minMeasure.quantity | number:'.1'}}{{sensor.minMeasure.symbol}}</p><ng-template #nan_min_mex ><p class="min-temperature" matTooltip="no data">NaN</p></ng-template>
+      								</mat-list-item>
+      							</mat-list>
+      						</div>
+      						<div *ngIf="!sensor.measure" style="color: #a90202; font-size: 30px;"><mat-icon>error</mat-icon> Error no data found!</div>
+      					</mat-grid-tile>
+      				</mat-grid-list>
+
+  					</mat-card-content>
+
+        </div>
+				</mat-card>
+	</div>
+</div>-->
+
+<div class="container" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <div class="item item-5" fxFlex *ngFor="let sensor of sensors; let i = index">
+			<mat-card class="sensor-card" style="text-align:center;">
+        <div class="sensor-card-content">
+  					<mat-card-content>
+
+              <div class="cardElement">
+                <p>{{sensor.title}}</p>
+
+                <temperature-card *ngIf="sensor.description=='Temperature'" [sensor]="sensor"></temperature-card>
+                <pressure-card *ngIf="sensor.description=='Pressure'" [sensor]="sensor"></pressure-card>
+
+            </div>
+
+  					</mat-card-content>
+
+        </div>
+				</mat-card>
+	</div>
+</div>

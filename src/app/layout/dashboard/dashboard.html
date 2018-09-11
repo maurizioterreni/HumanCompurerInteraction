@@ -1,0 +1,20 @@
+<div class="container" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <div class="item item-5" fxFlex *ngFor="let weatherStation of weatherstations; let i = index">
+    <div *ngIf="checked == false || (checked == true && isLiked(weatherStation.id)) ">
+			<mat-card class="weatherstation-card" style="text-align:center;">
+        <div class="weatherstation-card-content">
+            <div class="weatherstation-card-content-image"><img mat-card-image src="{{weatherStation.image}}"></div>
+  					<mat-card-content>
+  						<p>{{weatherStation.description}}</p>
+  					</mat-card-content>
+  					<mat-card-actions>
+  						<button mat-button routerLinkActive="active" routerLink="/sensor/{{weatherStation.id}}/"> <i class="material-icons">near_me</i> Open</button>
+  						<button mat-button (click)="openMap(weatherStation.longitude, weatherStation.latitude)"><i class="material-icons">my_location</i> MAP</button>
+  						<span *ngIf="isLiked(weatherStation.id) else no_favorite"><button mat-button *ngIf="user" (click)="weatherLike(weatherStation.id,true)"><i class="material-icons">favorite</i>Favorite</button></span>
+  						<ng-template #no_favorite><button mat-button *ngIf="user" (click)="weatherLike(weatherStation.id,false)"><i class="material-icons">favorite_border</i>Favorite</button></ng-template>
+  					</mat-card-actions>
+        </div>
+				</mat-card>
+		</div>
+	</div>
+</div>

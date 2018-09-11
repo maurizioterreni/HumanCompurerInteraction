@@ -1,0 +1,28 @@
+<div class="temperatureElement">
+
+  <div class="temperatureValue">
+    <div class="circleyestemperature">
+      <div class="temperatureLabel">Actual</div>
+      <mat-list-item  class="value" matTooltip="{{sensor.measure.dateTime | date: 'd/M/yy, H:mm'}}">{{sensor.measure.quantity | number:'.1'}}</mat-list-item>
+    </div>
+    <div class="temperatureSymbol">{{sensor.measure.symbol}}</div>
+  </div>
+
+  <div class="temperatureMaxValue">
+    <div class="circleyesMaxtemperature">
+      <div class="temperatureMaxLabel">Max</div>
+      <mat-list-item  class="valueMax" matTooltip="{{sensor.maxMeasure.dateTime | date: 'd/M/yy, H:mm'}}">{{sensor.maxMeasure.quantity | number:'.1'}}</mat-list-item>
+    </div>
+    <div class="temperatureMaxSymbol">{{sensor.maxMeasure.symbol}}</div>
+  </div>
+
+
+  <div class="temperatureMinValue">
+    <div class="circleyesMintemperature">
+      <div class="temperatureMinLabel">Min</div>
+      <mat-list-item  class="valueMin" matTooltip="{{sensor.minMeasure.dateTime | date: 'd/M/yy, H:mm'}}">{{sensor.minMeasure.quantity | number:'.1'}}</mat-list-item>
+    </div>
+    <div class="temperatureMinSymbol">{{sensor.minMeasure.symbol}}</div>
+  </div>
+
+</div>

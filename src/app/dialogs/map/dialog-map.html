@@ -1,0 +1,5 @@
+<mat-dialog-content class="accent-color">
+<agm-map *ngIf="dialogDisplay" [latitude]="lat" [longitude]="lng" [zoom] = "15">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+</mat-dialog-content>

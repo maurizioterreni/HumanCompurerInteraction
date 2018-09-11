@@ -1,55 +1,44 @@
-'use strict'
+const { app, BrowserWindow } = require('electron')
+const basepath = app.getAppPath();
 
-const electron = require('electron')
-const app = electron.app
-const globalShortcut = electron.globalShortcut
-const os = require('os')
-const path = require('path')
-const config = require(path.join(__dirname, 'package.json'))
-const BrowserWindow = electron.BrowserWindow
+let win;
 
-app.setName(config.productName)
-var mainWindow = null
-app.on('ready', function () {
-  mainWindow = new BrowserWindow({
-    backgroundColor: 'lightgray',
-    title: config.productName,
-    show: false,
+function createWindow () {
+  // Create the browser window.
+  win = new BrowserWindow({
     width: 1440,
-    height: 990,
-    webPreferences: {
-      nodeIntegration: true,
-      defaultEncoding: 'UTF-8'
-    }
+    height: 900,
+    backgroundColor: '#ffffff',
+    icon: `file://${basepath}/dist/assets/logo.png`
   })
 
-  mainWindow.loadURL(`file://${__dirname}/gui/dashboard.html`)
 
-  // Enable keyboard shortcuts for Developer Tools on various platforms.
-  let platform = os.platform()
-  if (platform === 'darwin') {
-    globalShortcut.register('Command+Option+I', () => {
-      mainWindow.webContents.openDevTools()
-    })
-  } else if (platform === 'linux' || platform === 'win32') {
-    globalShortcut.register('Control+Shift+I', () => {
-      mainWindow.webContents.openDevTools()
-    })
+  win.loadURL(`file://${basepath}/dist/index.html`)
+
+  //// uncomment below to open the DevTools.
+  // win.webContents.openDevTools()
+
+  // Event when the window is closed.
+  win.on('closed', function () {
+    win = null
+  })
+}
+
+// Create window on electron intialization
+app.on('ready', createWindow)
+
+// Quit when all windows are closed.
+app.on('window-all-closed', function () {
+
+  // On macOS specific close process
+  if (process.platform !== 'darwin') {
+    app.quit()
   }
-
-  mainWindow.once('ready-to-show', () => {
-    mainWindow.setMenu(null)
-    mainWindow.show()
-  })
-
-  mainWindow.onbeforeunload = (e) => {
-    // Prevent Command-R from unloading the window contents.
-    e.returnValue = false
-  }
-
-  mainWindow.on('closed', function () {
-    mainWindow = null
-  })
 })
 
-app.on('window-all-closed', () => { app.quit() })
+app.on('activate', function () {
+  // macOS specific close process
+  if (win === null) {
+    createWindow()
+  }
+})

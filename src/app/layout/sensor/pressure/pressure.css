@@ -1,0 +1,69 @@
+/*! CSS Used from: https://weather34.com/css/main.light.css?version=1536500506 */
+.updatedtime span{text-rendering:optimizeLegibility;}
+*,:after,:before{-moz-box-sizing:border-box;}
+*,:after,:before{-o-box-sizing:border-box;}
+*,:after,:before{-webkit-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:inherit;}
+svg:not(:root){overflow:hidden;}
+::-webkit-scrollbar{width:12px;}
+::-webkit-scrollbar-track{background-color:#eaeaea;border-left:1px solid #ccc;}
+::-webkit-scrollbar-thumb{background-color:#d65b4a;}
+::-webkit-scrollbar-thumb:hover{background-color:rgba(18,109,193,1);}
+::-moz-scrollbar{width:12px;}
+::-moz-scrollbar-track{background-color:#eaeaea;border-left:1px solid #ccc;}
+::-moz-scrollbar-thumb{background-color:#d65b4a;}
+::-moz-scrollbar-thumb:hover{background-color:rgba(18,109,193,1);}
+::-o-scrollbar{width:12px;}
+::-o-scrollbar-track{background-color:#eaeaea;border-left:1px solid #ccc;}
+::-o-scrollbar-thumb{background-color:#d65b4a;}
+::-o-scrollbar-thumb:hover{background-color:rgba(18,109,193,1);}
+::scrollbar{width:12px;}
+::scrollbar-track{background-color:#eaeaea;border-left:1px solid #ccc;}
+::scrollbar-thumb{background-color:#d65b4a;}
+::scrollbar-thumb:hover{background-color:rgba(18,109,193,1);}
+.updatedtime{width:75px;margin-left:220px;text-align:center;}
+.thearrow3:after,.thearrow3:before,.thearrow4:after{content:'';}
+.updatedtime{position:absolute;margin-top:-15px;color:#d65b4a;font:700 10px arial,sans-serif;line-height:10px;}
+.updatedtime span{margin-bottom:0;color:#d65b4a;font-weight:700;-o-font-smoothing:antialiased;font-family:arial,sans-serif;}
+.barometermax{margin-left:10px;width:50px;position:absolute;text-align:center;}
+.barometermin{margin-left:230px;position:absolute;}
+.barometermax{margin-top:10px;color:rgba(245,101,10,1);font:10px arial,sans-serif;line-height:9px;}
+.barometermax span{font:700 10px arial,sans-serif;color:gray;}
+.barometermin{margin-top:120px;width:50px;color:rgba(18,109,193,1);font:10px arial,sans-serif;line-height:9px;text-align:center;}
+.barometermin span{font:700 10px arial,sans-serif;color:gray;}
+:full-screen{background:#fff;}
+:-webkit-full-screen{background:#fff;}
+:-moz-full-screen{background:#fff;}
+:-ms-fullscreen{background:#fff;}
+:fullscreen{background:#fff;}
+.homeweathercompass2>.homeweathercompass-line2{-webkit-clip-path:polygon(100%0,100%100%,100%100%,0100%,0);-ms-clip-path:polygon(100%0,100%100%,100%100%,0100%,0);}
+.text2{font-family:weathertext,Arial;}
+*{-webkit-box-sizing:border-box;box-sizing:border-box;}
+.ored{color:#d65b4a;}
+.oblue{color:#01a4b4;}
+
+.barometerblue,.barometerorange{font-weight:400;margin-top:5px;width:60px;position:relative;float:left;padding:1px;border-radius:4px;color:#fff;background:rgba(245,247,252,1);color:rgba(45,45,45,1);}
+.barometerorange{margin-left:0;}
+.barometerblue{margin-left:5px;}
+.barometerorange span{font-weight:600;color:rgba(245,101,10,1);}
+.barometerblue span{font-weight:600;color:rgba(0,154,171,1);}
+.barometertrend2,.text2,convtext{font-weight:400;}
+convtext{color:gray;}
+.homeweathercompass2{position:absolute;width:175px;height:175px;margin-top:-30px;margin-left:60px;}
+.homeweathercompass2>.homeweathercompass-line2{right:25px;-ms-border-radius:100%;position:absolute;z-index:10;left:25px;top:20px;bottom:25px;width:170px;height:170px;border:8px solid #e9ebf1;border-top:8px solid #e9ebf1;border-right:8px solid #e9ebf1;border-radius:50%;-webkit-border-radius:50%;-moz-border-radius:50%;-o-border-radius:50%;border-bottom-color:transparent;border-left-color:transparent;transform:rotate(-45deg);margin:auto;}
+.thearrow3:after,.thearrow4:after{background-color:NONE;-moz-transform:translate(-50%,-50%);-o-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);position:absolute;-webkit-transform:translate(-50%,-50%);}
+.homeweathercompass2{display:block;text-align:center;color:rgba(45,45,45,1);font-family:Arial,sans-serif;font-weight:600;line-height:12px;font-size:12px;z-index:10;margin:25px 0 auto 40px;}
+.thearrow3:after{left:50%;top:0;width:0;height:0;border-style:solid;border-width:14px 9px 0;border-color:RGBA(177,200,105,1) transparent transparent;transform:translate(-50%,-50%);-webkit-transition-duration:3s;-moz-transition-duration:3s;-o-transition-duration:3s;-ms-transition-duration:3s;transition-duration:3s;}
+.thearrow3:before{width:6px;height:6px;position:absolute;z-index:9;left:2px;top:-5px;border:2px solid;-webkit-border-radius:100%;-moz-border-radius:100%;-o-border-radius:100%;-ms-border-radius:100%;border-radius:100%;}
+.text2{font-size:18px;margin-left:35px;margin-top:75px;color:#f5650a;}
+.pressuretext{position:absolute;font-size:13px;color:#01a4b4;margin-top:-20px;margin-left:33px;width:80px;background:RGBA(230,232,239,.3);-webkit-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;border-radius:4px;text-align:center;}
+.text2 span{font-size:12px;color:gray;}
+.text2 span{vertical-align:middle;}
+.barometertrend2{position:absolute;color:rgba(45,45,45,1);padding:1px;border-radius:4px;margin-top:5px;margin-left:235px;float:left;width:60px;line-height:10px;font-size:10px;}
+.barometerconv{margin-left:5px;width:200px;font:12px arial,sans-serif;line-height:11px;margin-top:135px;position:absolute;text-align:center;color:#01a4b4;}
+.barometerlimits{position:absolute;font-size:12px;}
+.barometerconv span{color:gray;}
+.barometerlimits{margin-top:62px;margin-left:18px;width:235px;color:rgba(45,45,45,1);font-weight:400;font-family:Helvetica,Arial;}
+/*! CSS Used from: Embedded */
+.thearrow3{-webkit-transform:rotate(75.3deg);-moz-transform:rotate(75.3deg);-o-transform:rotate(75.3deg);-ms-transform:rotate(75.3deg);transform:rotate(75.3deg);position:absolute;z-index:200;top:0;left:50%;margin-left:-5px;width:10px;height:50%;-webkit-transform-origin:50% 100%;-moz-transform-origin:50% 100%;-o-transform-origin:50% 100%;-ms-transform-origin:50% 100%;transform-origin:50% 100%;-webkit-transition-duration:3s;-moz-transition-duration:3s;-o-transition-duration:3s;-ms-transition-duration:3s;transition-duration:3s;}
+/*! CSS Used fontfaces */
+@font-face{font-family:weathertext;src:url(https://weather34.com/css/fonts/sanfranciscodisplay-regular-webfont.woff);}

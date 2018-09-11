@@ -1,0 +1,24 @@
+
+
+<div class="pressureElement">
+
+  <div class="homeweathercompass2" style="background:none;border:0;">
+    <div class="homeweathercompass-line2" style="background:none;border:0;">
+
+    </div>
+  </div>
+  <div class="homeweathercompass2">
+    <div class="homeweathercompass-line2">
+      <div class="thearrow3" [style.transform]="'rotate(' + getRotation(sensor.measure.quantity) + 'deg)'"></div>
+    </div>
+    <div class="text2">
+      <mat-list-item  class="ored" matTooltip="{{sensor.measure.dateTime | date: 'd/M/yy, H:mm'}}">{{sensor.measure.quantity | number:'.1'}}</mat-list-item>&nbsp;<span>{{sensor.measure.symbol}}</span>
+    </div>
+  </div>
+  <div class="barometerlimits">
+    <div class="barometerlimits">
+      <span class="oblue">958</span>      ----------------------------------     <span class="ored">1058</span>
+    </div>
+  </div>
+
+</div>
