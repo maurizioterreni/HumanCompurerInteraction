@@ -1,5 +1,5 @@
-<div class="container" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">
-  <div class="item item-5" fxFlex *ngFor="let weatherStation of weatherstations; let i = index">
+<div class="container grid2x2">
+  <div class="box" *ngFor="let weatherStation of weatherstations; let i = index">
     <div *ngIf="checked == false || (checked == true && isLiked(weatherStation.id)) ">
 			<mat-card class="weatherstation-card" style="text-align:center;">
         <div class="weatherstation-card-content">

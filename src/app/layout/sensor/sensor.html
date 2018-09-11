@@ -28,7 +28,7 @@
 				</mat-card>
 	</div>
 </div>-->
-
+<!---
 <div class="container" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">
   <div class="item item-5" fxFlex *ngFor="let sensor of sensors; let i = index">
 			<mat-card class="sensor-card" style="text-align:center;">
@@ -48,4 +48,25 @@
         </div>
 				</mat-card>
 	</div>
+</div>
+-->
+<div class="grid2x2 container">
+  <div class="box" *ngFor="let sensor of sensors; let i = index">
+      <mat-card class="sensor-card" style="text-align:center;">
+        <div class="sensor-card-content">
+            <mat-card-content>
+
+              <div class="cardElement">
+                <p>{{sensor.title}}</p>
+
+                <temperature-card *ngIf="sensor.description=='Temperature'" [sensor]="sensor"></temperature-card>
+                <pressure-card *ngIf="sensor.description=='Pressure'" [sensor]="sensor"></pressure-card>
+
+            </div>
+
+            </mat-card-content>
+
+        </div>
+      </mat-card>
+  </div>
 </div>

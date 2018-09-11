@@ -4,13 +4,18 @@
 
 .wrapper{
   margin-bottom: 100px;
+  margin-top: 63px;
+}
 
+.menuLeft{
+  margin-top: 63px;
 }
 
 .container {
   margin: 0 auto -100px;
-  height: 100vh;
+  height: 100%;
   overflow: auto;
+
 }
 
 
@@ -46,21 +51,26 @@ mat-sidenav {
 
 .header-box-shadow {
   box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  left: 0;
 }
 
 .bottom-to-top {
   border: 0px;
   border-right: 1px;
   border-style: solid;
-  border-image:
-  linear-gradient(to top, #c1c1c1, rgba(0, 0, 0, 0)) 1 100%
+  border-image: linear-gradient(to top, #c1c1c1, rgba(0, 0, 0, 0)) 1 100%;
+  margin-top: 63px;
 }
 
 .footer {
-position: absolute;
-bottom: 0;
-left: 0;
-width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .row {
