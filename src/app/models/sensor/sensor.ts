@@ -4,10 +4,6 @@ export interface Sensor {
   id: number;
   description: string;
   title: string;
-  symbol: string;
-  name: string;
-  maxMeasure: Measure;
-  measure: Measure;
-  minMeasure: Measure;
+  sensorTemplate: number;
   unitKnowledgeId: number;
 }

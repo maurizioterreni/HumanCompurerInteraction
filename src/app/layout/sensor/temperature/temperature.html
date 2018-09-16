@@ -1,28 +1,21 @@
 <div class="temperatureElement">
-
-  <div class="temperatureValue">
-    <div class="circleyestemperature">
-      <div class="temperatureLabel">Actual</div>
-      <mat-list-item  class="value" matTooltip="{{sensor.measure.dateTime | date: 'd/M/yy, H:mm'}}">{{sensor.measure.quantity | number:'.1'}}</mat-list-item>
+  <div class="weather-item">
+    <div id="windspeed">
+      <div class="dailyValue">
+        <div class="temperatureMax"><span class="supmb">T. Max: </span><span class="max">20.8</span><span class="supmb"> °c</span><br><span class="supmb"> 10:52 </span></div>
+        <div class="temperatureMin"><span class="supmb">T. Min: </span><span class="min">20.8</span><span class="supmb"> °c</span><br><span class="supmb">  14:34 </span></div>
+        <div class="humidityMax"><span class="supmb">H. Max: </span><span class="max">20.8</span><span class="supmb"> %</span><br><span class="supmb">  11:34 </span></div>
+        <div class="humidityMin"><span class="supmb">H. Max: </span><span class="min">20.8</span><span class="supmb"> %</span><br><span class="supmb">  18:56 </span></div>
+        <div class="dewPoint"><span class="supmb">DewPoint: </span><span class="value">20.8</span><span class="supmb"> °c</span></div>
+      </div>
+      <div class="homeweathercompass1">
+        <div class="homeweathercompass-line1"></div>
+        <div class="text1">
+          <div class="temperature">35.0°c</div>
+          <div class="humidity">85%</div>
+        </div>
+      </div>
     </div>
-    <div class="temperatureSymbol">{{sensor.measure.symbol}}</div>
-  </div>
-
-  <div class="temperatureMaxValue">
-    <div class="circleyesMaxtemperature">
-      <div class="temperatureMaxLabel">Max</div>
-      <mat-list-item  class="valueMax" matTooltip="{{sensor.maxMeasure.dateTime | date: 'd/M/yy, H:mm'}}">{{sensor.maxMeasure.quantity | number:'.1'}}</mat-list-item>
-    </div>
-    <div class="temperatureMaxSymbol">{{sensor.maxMeasure.symbol}}</div>
-  </div>
-
-
-  <div class="temperatureMinValue">
-    <div class="circleyesMintemperature">
-      <div class="temperatureMinLabel">Min</div>
-      <mat-list-item  class="valueMin" matTooltip="{{sensor.minMeasure.dateTime | date: 'd/M/yy, H:mm'}}">{{sensor.minMeasure.quantity | number:'.1'}}</mat-list-item>
-    </div>
-    <div class="temperatureMinSymbol">{{sensor.minMeasure.symbol}}</div>
   </div>
 
 </div>

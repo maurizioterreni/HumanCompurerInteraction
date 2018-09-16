@@ -18,10 +18,12 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class SensorComponent implements OnInit {
   private environment: Environment;
   sensors: Sensor[];
+  templates: number[];
   id: String;
 
   constructor(private router: Router, private activeRoute: ActivatedRoute, private sensorService: SensorService){
     this.sensors = [];
+    this.templates = [];
   }
 
   ngOnInit() {
@@ -33,9 +35,28 @@ export class SensorComponent implements OnInit {
       .subscribe((results: any[]) => {
           for (const i of results) {
             if(i != null){
+              let sensor = <Sensor> i;
+              if(this.templates.indexOf(sensor.sensorTemplate) == -1) {
+                this.templates.push(sensor.sensorTemplate);
+              }
+
               this.sensors.push(<Sensor> i);
             }
           }
+
+          console.log(this.templates);
       });
   }
+
+  public getSensors(templateId) {
+    let sensorArray = [];
+    for (const i of this.sensors) {
+      if(i.sensorTemplate == templateId){
+        sensorArray.push(i);
+      }
+    }
+
+    return sensorArray;
+  }
+
 }

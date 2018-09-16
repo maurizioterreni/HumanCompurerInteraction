@@ -1,17 +1,17 @@
 <div class="grid2x2 container">
-  <div class="box" *ngFor="let sensor of sensors; let i = index">
+  <div class="box" *ngFor="let template of templates; let i = index">
       <mat-card class="sensor-card" style="text-align:center;">
         <div class="sensor-card-content">
             <mat-card-content>
 
               <div class="cardElement">
-                <p>{{sensor.title}}</p>
+            <!--  <p>{{sensor.title}}</p>-->
 
-                <temperature-card *ngIf="sensor.description=='Temperature'" [sensor]="sensor"></temperature-card>
-                <pressure-card *ngIf="sensor.description=='Pressure'" [sensor]="sensor"></pressure-card>
-                <wind-card *ngIf="sensor.description=='Wind direction'" [sensor]="sensor"></wind-card>
+                <temperature-card *ngIf="i=='1'" [sensors]="getSensors(i)"></temperature-card>
+                <pressure-card *ngIf="i=='3'" [sensor]="getSensors(i)"></pressure-card>
+                <!--<wind-card *ngIf="sensor.description=='Wind direction'" [sensor]="sensor"></wind-card>
                 <wind-card *ngIf="sensor.description=='Wind speed'" [sensor]="sensor"></wind-card>
-
+-->
             </div>
 
             </mat-card-content>

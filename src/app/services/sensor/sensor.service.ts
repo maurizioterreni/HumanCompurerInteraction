@@ -12,10 +12,9 @@ export class SensorService {
 
   getSensor(weatherId) {
     const headers = new HttpHeaders()
-        .set('Content-Type', 'application/json')
-        .set('weatherId', ''+weatherId);
+        .set('Content-Type', 'application/json');
 
-      return this.http.get('http://maurizioterreni.altervista.org/rest/services/sensor/read.php' , {headers});
+      return this.http.get('http://localhost:8080/WeatherSt-0.0.1-SNAPSHOT/rest/1.0/sensor/weatherstation/' + weatherId, {headers});
     }
 /*
    createWeathrStation(user:User, titleName:string, urlImage:string, lat: string, lng:string) {
