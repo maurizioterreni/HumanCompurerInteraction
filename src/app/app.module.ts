@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { SensorComponent } from './layout/sensor/sensor.component';
 import { TemperatureCardComponent } from './layout/sensor/temperature/temperature.component';
+import { RainCardComponent } from './layout/sensor/rain/rain.component';
 import { WindCardComponent } from './layout/sensor/wind/wind.component';
 import { PressureCardComponent } from './layout/sensor/pressure/pressure.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { AppComponent } from './app.component';
     TemperatureCardComponent,
     PressureCardComponent,
     WindCardComponent,
+    RainCardComponent,
     DialogMaps
   ],
   imports: [
