@@ -8,7 +8,7 @@ import { Sensor } from '../../../models/sensor/sensor';
   providers: []
 })
 export class PressureCardComponent implements OnInit, OnChanges {
-  @Input() sensor: Sensor;
+  @Input() sensors: Sensor[];
 
   constructor() {
 
