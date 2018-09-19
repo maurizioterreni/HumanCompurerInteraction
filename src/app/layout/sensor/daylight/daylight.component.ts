@@ -76,14 +76,7 @@ export class DaylightCardComponent implements OnInit, OnChanges {
     let cosDec = Math.cos(Math.asin(sinDec));
     console.log('cosDec = ' + cosDec);
     let cosH = -0.079363;//(zenith - (sinDec * Math.sin(latitude))) / (cosDec * Math.cos(latitude));
-    console.log('Math.cos(zenith) = ' + zenith);
-    console.log('Math.sin(latitude) = ' + Math.sin(latitude));
-    console.log('sinDec * Math.sin(latitude)) = ' + (sinDec * Math.sin(latitude))));
-    console.log('(cosDec * Math.cos(latitude) = ' + (cosDec * Math.cos(latitude));
-    console.log('risu = ' + (sinDec * Math.sin(latitude))) / (cosDec * Math.cos(latitude)));
-    console.log('Math.cos(latitude) = ' + Math.cos(latitude));
-    console.log('cosH = ' + cosH);
-
+  
     if(cosH > 1){
       console.log('the sun never rises on this location');
       return;
