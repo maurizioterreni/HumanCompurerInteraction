@@ -2,18 +2,22 @@ import { WeatherStation } from '../../models/weatherstation/weatherstation';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { ServiceConfig } from '../serviceConfig';
 //import 'rxjs/add/operator/catch';
 
 
 @Injectable()
 export class WeatherStationService {
-  constructor(private http: HttpClient) { }
+  serviceConf : ServiceConfig;
+  constructor(private http: HttpClient) {
+    this.serviceConf = new ServiceConfig();
+  }
 
   getAllWeathrStation() {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
 
-    return this.http.get('http://maurizioterreni.altervista.org/rest/services/weatherstation/read.php' , {headers});
+    return this.http.get(this.serviceConf.getEndPoint() + 'weatherstation/read.php' , {headers});
 
    }
 /*

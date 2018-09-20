@@ -3,19 +3,23 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Sensor } from '../../models/sensor/sensor';
+import { ServiceConfig } from '../serviceConfig';
 //import 'rxjs/add/operator/catch';
 
 
 @Injectable()
 export class SensorService {
-  constructor(private http: HttpClient) { }
+  private serviceConf : ServiceConfig;
+  constructor(private http: HttpClient) {
+    this.serviceConf = new ServiceConfig();
+  }
 
   getSensor(weatherId) {
     const headers = new HttpHeaders()
         .set('Content-Type', 'application/json');
-
-      return this.http.get('http://localhost:8080/WeatherSt-0.0.1-SNAPSHOT/rest/1.0/sensor/weatherstation/' + weatherId, {headers});
-    }
+    console.log(this.serviceConf.getEndPoint() + 'sensor/weatherstation/');
+    return this.http.get(this.serviceConf.getEndPoint() + 'sensor/weatherstation/' + weatherId, {headers});
+  }
 /*
    createWeathrStation(user:User, titleName:string, urlImage:string, lat: string, lng:string) {
       const headers = new HttpHeaders()
