@@ -16,8 +16,8 @@ export class WeatherStationService {
   getAllWeathrStation() {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json');
-
-    return this.http.get(this.serviceConf.getEndPoint() + 'weatherstation/read.php' , {headers});
+    console.log(this.serviceConf.getEndPoint() + 'weatherstation');
+    return this.http.get(this.serviceConf.getEndPoint() + 'weatherstation' , {headers});
 
    }
 /*
