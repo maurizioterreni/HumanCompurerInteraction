@@ -21,7 +21,8 @@ export class DaylightCardComponent implements OnInit, OnChanges {
   //  this.sunrise.setHours(6,50,0,0);
 //    this.sunset.setHours(19,10,0,0);
 
-    this.calculateSunrise();
+    this.calculateHour(43.69489556632679,10.951802242615486,true);
+    this.calculateHour(43.69489556632679,10.951802242615486,false);
 
   //  console.log(this.sunrise.getFullYear() + '  ' + (this.sunrise.getMonth() + 1));
 
@@ -39,63 +40,109 @@ export class DaylightCardComponent implements OnInit, OnChanges {
 
   }
 
-  private calculateSunrise(){
-
-    let zenith = 0;//Math.cos(zenith)
-    let latitude = 10.951802242615486;
+  private calculateHour(latitude,longitude, rise){
+    let localOffset = 2.0;
     let n1 = Math.floor(275 * (this.sunrise.getMonth() + 1) / 9);
     let n2 = Math.floor((this.sunrise.getMonth() + 10) /12 );
     let n3 = (1 + Math.floor((this.sunrise.getFullYear() - 4 * Math.floor(this.sunrise.getFullYear() / 4) + 2) / 3));
-    let n = n1 - (n2 * n3) + this.sunrise.getDate() - 30;
+    let N = n1 - (n2 * n3) + this.sunrise.getDate() - 30;
 
-    console.log('n = ' + n);
 
-    let lngHour = latitude / 15;
-    console.log('lngHour = ' + lngHour);
-    let t = n + ((6 - lngHour) / 24);
-    console.log('t = ' + t);
-    let m = (0.9856 * t) - 3.289;
-    console.log('m = ' + m);
-
-    let l = m + (1.916 * Math.sin(m)) + (0.020 * Math.sin(2 * m)) + 282.634;
-    console.log('l = ' + l);
-    let ra = Math.atan(0.91764 * Math.tan(l));
-    console.log('ra = ' + ra);
-
-    let lQuadrant = Math.floor(l/90) * 90;
-    console.log('lQuadrant = ' + lQuadrant);
-    let raQuadrant = Math.floor(ra / 90) * 90;
-    console.log('raQuadrant = ' + raQuadrant);
-    ra = ra + (lQuadrant - raQuadrant);
-    console.log('ra = ' + ra);
-
-    ra = ra / 15;
-    console.log('ra = ' + ra);
-    let sinDec = 0.39782 * Math.sin(l);
-    console.log('sinDec = ' + sinDec);
-    let cosDec = Math.cos(Math.asin(sinDec));
-    console.log('cosDec = ' + cosDec);
-    let cosH = -0.079363;//(zenith - (sinDec * Math.sin(latitude))) / (cosDec * Math.cos(latitude));
-  
-    if(cosH > 1){
-      console.log('the sun never rises on this location');
-      return;
+    //2. convert the longitude to hour value and calculate an approximate time
+    let lngHour = longitude / 15;
+    //let t = rise?
+    let t = 0;
+    if(rise){
+      t = N + (( 6 - lngHour) / 24);
+    }else{
+      t = N + ((18 - lngHour) / 24)
     }
-    if(cosH < -1){
-      console.log('the sun never sets on this location');
-      return;
+    //3. calculate the Sun's mean anomaly
+    let M = (0.9856 * t) - 3.289;
+    //4. calculate the Sun's true longitude
+    let L = M + (1.916 * this.sin(M)) + (0.020 * this.sin(2 * M)) + 282.634;
+    L = this.mod(L, 360);
+
+    //5a. calculate the Sun's right ascension
+    let RA = this.atan(0.91764 * this.tan(L));
+    RA = this.mod(RA, 360);
+
+    //5b. right ascension value needs to be in the same quadrant as L
+    let Lquadrant  = (Math.floor( L/90)) * 90;
+    let RAquadrant = (Math.floor(RA/90)) * 90;
+    RA = RA + (Lquadrant - RAquadrant);
+
+    //5c. right ascension value needs to be converted into hours
+    RA = RA / 15;
+
+    //6. calculate the Sun's declination
+    let sinDec = 0.39782 * this.sin(L);
+    let cosDec = this.cos(this.asin(sinDec));
+
+    //7a. calculate the Sun's local hour angle
+    let zenith = 90 + 50.0/60;
+    let cosH = (this.cos(zenith) - (sinDec * this.sin(latitude))) / (cosDec * this.cos(latitude));
+
+    if (cosH >  1)
+      throw new Error("the sun never rises on this location (on the specified date");
+    if (cosH < -1)
+      throw new Error("the sun never sets on this location (on the specified date");
+
+    //7b. finish calculating H and convert into hours
+    //let H = rise?
+    let H = 0;
+    if(rise){
+      H = 360 - this.acos(cosH);
+    }else{
+      H = this.acos(cosH);
     }
 
-    let h = 360 - Math.acos(cosH);
+    H = H / 15;
 
-    h = h / 15;
+    //8. calculate local mean time of rising/setting
+    let T = H + RA - (0.06571 * t) - 6.622;
+          //9. adjust back to UTC
+    let UT = T - lngHour;
 
-    t = h + ra - (0.06571 * t) - 6.662;
+    //10. convert UT value to local time zone of latitude/longitude
+    let localT = UT + localOffset;
+    localT = this.mod(localT, 24);
 
+    let hour = Math.floor(localT);
+    let minute = Math.floor((localT - hour) * 100));
 
+    if(rise){
+      this.sunrise.setHours(hour,minute,0,0);
+    }else{
+      this.sunset.setHours(hour,minute,0,0);
+    }
+  }
 
-    console.log(t);
-  //  this.sunrise.setHours(6,50,0,0);
+  private mod(x, lim){
+    return x - lim * Math.floor(x/lim);
+  }
+
+  private cos(degree){
+    return Math.cos(degree*Math.PI/180);
+  }
+
+  private sin(degree){
+    return Math.sin(degree*Math.PI/180);
+  }
+
+  private asin(x){
+    return Math.asin(x) *180/Math.PI;
+  }
+
+  private tan(degree){
+    return Math.tan(degree*Math.PI/180);
+  }
+  private atan(x){
+    return Math.atan(x) *180/Math.PI;
+  }
+
+  private acos(x){
+    return Math.acos(x) *180/Math.PI;
   }
 
 /*
