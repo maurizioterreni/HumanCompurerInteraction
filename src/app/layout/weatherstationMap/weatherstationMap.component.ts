@@ -8,7 +8,7 @@ import { MouseEvent } from '@agm/core';
   selector: 'weatherstationMap-map',
   styleUrls: ['weatherstationMap.css'],
   templateUrl: 'weatherstationMap.html',
-  providers: [WeatherStationService]
+  providers: [ WeatherStationService ]
 })
 
 export class WeatherStationMapComponent  implements OnInit {
@@ -16,7 +16,6 @@ export class WeatherStationMapComponent  implements OnInit {
   markers: Marker[];
   lat = 43.769562;
   lng = 11.255814;
-  componentDisplay = false;
 
   constructor(private weatherStationService: WeatherStationService) {
     this.weatherstations = [];
@@ -27,9 +26,8 @@ export class WeatherStationMapComponent  implements OnInit {
     this.weatherStationService.getAllWeathrStation()
       .subscribe((response: WeatherStation[]) => {
         this.weatherstations = response;
+        this.addMarker();
       });
-    this.addMarker();
-    this.componentDisplay = true;
   }
 
   addMarker() {
