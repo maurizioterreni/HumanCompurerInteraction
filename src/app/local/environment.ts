@@ -1,6 +1,6 @@
 export class Environment {
     private title = "My WeatherStation";
-    private version = "0.2.11";
+    private version = "0.2.13";
 
     constructor() {}
 
