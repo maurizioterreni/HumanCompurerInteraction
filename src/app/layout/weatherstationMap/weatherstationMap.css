@@ -1,14 +1,10 @@
 agm-map{
-	height: 86vh;
-	width: 103vh;
-	/* margin-top: 79px; */
-	/* height: 117px; */
-	position: absolute;
-	top: 70px;
-	/* bottom: -3px; */
-	right: 5px;
+
+	position: relative;
+  height: calc(100vh - 4em - 64px);
 }
 
 .container {
-	height: 100%; /* For 100% screen height */
+	position: relative;
+	height: calc(92vh - 4em - 64px);
 }

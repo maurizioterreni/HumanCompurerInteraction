@@ -11,6 +11,7 @@ export class DaylightCardComponent implements OnInit, OnChanges {
   now = Date.now();
   sunset : any;
   sunrise : any;
+  
   constructor() {
     //this.d = new Date(date);
   //  this.sunrise = new Date(this.now.getFullYear() + '', this.now.getMonth() + '', this.now.getDay() + '', '6', '50');
