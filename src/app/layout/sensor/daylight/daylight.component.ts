@@ -109,7 +109,7 @@ export class DaylightCardComponent implements OnInit, OnChanges {
     localT = this.mod(localT, 24);
 
     let hour = Math.floor(localT);
-    let minute = Math.floor((localT - hour) * 100));
+    let minute = Math.floor((localT - hour) * 100);
 
     if(rise){
       this.sunrise.setHours(hour,minute,0,0);
