@@ -5,12 +5,11 @@
             <mat-card-content>
 
               <div class="cardElement">
-            <!--  <p>{{sensor.title}}</p>-->
 
-                <temperature-card *ngIf="i=='1'" [sensors]="getSensors(i)"></temperature-card>
-                <wind-card *ngIf="i=='2'" [sensors]="getSensors(i)"></wind-card>
-                <pressure-card *ngIf="i=='3'" [sensors]="getSensors(i)"></pressure-card>
-                <rain-card *ngIf="i=='5'" [sensors]="getSensors(i)"></rain-card>
+                <temperature-card *ngIf="i=='0'" [sensors]="getSensors(i)"></temperature-card>
+                <wind-card *ngIf="i=='1'" [sensors]="getSensors(i)"></wind-card>
+                <pressure-card *ngIf="i=='2'" [sensors]="getSensors(i)"></pressure-card>
+                <rain-card *ngIf="i=='4'" [sensors]="getSensors(i)"></rain-card>
 
             </div>
 
@@ -35,4 +34,12 @@
         </div>
       </mat-card>
   </div>
+
+  <div class="box" *ngIf="(templates.lenght % 2) == 0 ">
+    <div>
+			<mat-card class="card-blank" style="text-align:center;">
+
+			</mat-card>
+		</div>
+	</div>
 </div>

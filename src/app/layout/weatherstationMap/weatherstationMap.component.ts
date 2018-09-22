@@ -14,12 +14,13 @@ import { MouseEvent } from '@agm/core';
 export class WeatherStationMapComponent  implements OnInit {
   weatherstations: WeatherStation[];
   markers: Marker[];
-  lat = 43.769562;
-  lng = 11.255814;
+  lat : number;
+  lng : number;
 
   constructor(private weatherStationService: WeatherStationService) {
     this.weatherstations = [];
     this.markers = [];
+    this.findMe();
   }
 
   ngOnInit() {
@@ -40,6 +41,19 @@ export class WeatherStationMapComponent  implements OnInit {
       });
     }
 
+  }
+
+  findMe() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+      });
+    } else {
+      this.lat = 43.769562;
+      this.lng = 11.255814;
+      alert("Geolocation is not supported by this browser.");
+    }
   }
 
 }

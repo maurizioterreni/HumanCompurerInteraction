@@ -1,8 +1,13 @@
 .sensor-card{
   width: 400px;
-  height: 400px;
+  height: 330px;
   margin: auto;
   margin-top: 10px;
+}
+
+.card-blank{
+  background: #fbfbfb !important;
+  box-shadow: none !important;
 }
 
 .sensor-card-content img{

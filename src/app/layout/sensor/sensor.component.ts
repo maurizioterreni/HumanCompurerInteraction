@@ -30,7 +30,6 @@ export class SensorComponent implements OnInit {
     this.activeRoute.params.forEach((params: Params) => {
       this.id = params['id'];
     });
-    console.log(this.id);
     this.sensorService.getSensor(this.id)
       .subscribe((results: any[]) => {
           for (const i of results) {
@@ -43,8 +42,6 @@ export class SensorComponent implements OnInit {
               this.sensors.push(<Sensor> i);
             }
           }
-
-          console.log(this.templates);
       });
   }
 

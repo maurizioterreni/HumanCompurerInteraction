@@ -1,6 +1,11 @@
+
+.card-blank{
+  background: #fbfbfb !important;
+  box-shadow: none !important;
+}
 .weatherstation-card{
   width: 400px;
-  height: 400px;
+  height: 340px;
   margin: auto;
   margin-top: 10px;
 }
