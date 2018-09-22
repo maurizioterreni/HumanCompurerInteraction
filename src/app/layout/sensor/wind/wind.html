@@ -6,19 +6,20 @@
     <div id="windspeed"><br>
 
       <div class="windspeedvalues">
-        <div class="windspeedvalue">12.2<div class="windunitidspeed">km/h</div></div>
+        <div *ngIf="measureWind else nan_max_mex" matTooltip="{{measureWind.dateTime | date: 'd/M/yy, H:mm'}}" class="windspeedvalue">{{measureWind.quantity | number:'.1'}}<div class="windunitidspeed">{{measureWind.symbol}}</div></div><ng-template #nan_max_mex ><div class="windspeedvalue" matTooltip="no data">NaN</div></ng-template>
+
       </div>
       <div class="windannual1">
         <div class="almanac">Almanac</div>
-        2018<br><span class="rainblue">20.3</span>&nbsp;<span class="raingrey">km/h</span><br>
-        Sept.<br><span class="rainblue">10.7</span>&nbsp;<span class="raingrey">km/h</span><br>
-        Yesterday<br><span class="rainblue">60.0</span>&nbsp;<span class="raingrey">km/h</span><br>
+        {{today | date: 'yyyy'}}<br><span class="rainblue">{{getMeasureValue(measureWindYear[0])}}</span><br>
+        {{today | date: 'MMM'}}.<br><span class="rainblue">{{getMeasureValue(measureWindMonth[0])}}</span><br>
+        Today<br><span class="rainblue">{{getMeasureValue(measureWindDay[0])}}</span><br>
       </div>
 
 
-      <div class="homeweathercompass1"><div class="homeweathercompass-line1"><div class="thearrow2"></div></div>
-        <div class="text1"><div class="windvalue1" id="windvalue">63°</div></div>
-        <div class="windirectiontext1">East North<br><span>East</span></div>
+      <div class="homeweathercompass1"><div class="homeweathercompass-line1"><div [ngStyle]="{ 'transform': 'rotate('+getRotation()+'deg)'}" class="thearrow2"></div></div>
+        <div class="text1"><div class="windvalue1" id="windvalue">{{getDirectionNumber()}}</div></div>
+        <div class="windirectiontext1">{{getDirectionAngle()}}</div>
       </div>
 
 

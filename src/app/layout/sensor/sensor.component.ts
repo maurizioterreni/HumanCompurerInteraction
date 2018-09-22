@@ -45,14 +45,14 @@ export class SensorComponent implements OnInit {
       });
   }
 
-  public getSensors(templateId) {
+  public getSensors(templateId) : Sensor[] {
     let sensorArray = [];
     for (const i of this.sensors) {
-      if(i.sensorTemplate == templateId){
+      if(i.sensorTemplate == (templateId + 1)){
         sensorArray.push(i);
       }
     }
-
+    //console.log("sensor: " + sensorArray);
     return sensorArray;
   }
 

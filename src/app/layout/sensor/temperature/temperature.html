@@ -4,18 +4,18 @@
     <div id="windspeed">
       <div class="tempannual1">
         <div class="almanac">Almanac</div>
-        T.Max<br><span class="rainblue">20.3</span>&nbsp;<span class="raingrey">°C</span><br>
-        T.Min<br><span class="rainblue">10.7</span>&nbsp;<span class="raingrey">°C</span><br>
-        H.Max<br><span class="rainblue">60</span>&nbsp;<span class="raingrey">%</span><br>
-        H.Min<br><span class="rainblue">50</span>&nbsp;<span class="raingrey">%</span><br>
-        DewPoint<br><span class="rainblue">12.3</span>&nbsp;<span class="raingrey">°C</span>
+        T.Max<br><span *ngIf="this.almanacTemp[0] else nan_max_temp" matTooltip="{{this.almanacTemp[0].dateTime | date: 'd/M/yy, H:mm'}}" class="rainblue">{{this.almanacTemp[0].quantity | number: '.1'}}&nbsp;{{this.almanacTemp[0].symbol}}</span><ng-template #nan_max_temp ><span matTooltip="no data">NaN</span></ng-template><br>
+        T.Min<br><span *ngIf="this.almanacTemp[1] else nan_max_temp" matTooltip="{{this.almanacTemp[1].dateTime | date: 'd/M/yy, H:mm'}}" class="rainblue">{{this.almanacTemp[1].quantity | number: '.1'}}&nbsp;{{this.almanacTemp[1].symbol}}</span><ng-template #nan_max_temp ><span matTooltip="no data">NaN</span></ng-template><br>
+        H.Max<br><span *ngIf="this.almanacHum[0] else nan_max_temp" matTooltip="{{this.almanacHum[0].dateTime | date: 'd/M/yy, H:mm'}}" class="rainblue">{{this.almanacHum[0].quantity | number: '.1'}}&nbsp;{{this.almanacHum[0].symbol}}</span><ng-template #nan_max_temp ><span matTooltip="no data">NaN</span></ng-template><br>
+        H.Min<br><span *ngIf="this.almanacHum[1] else nan_max_temp" matTooltip="{{this.almanacHum[1].dateTime | date: 'd/M/yy, H:mm'}}" class="rainblue">{{this.almanacHum[1].quantity | number: '.1'}}&nbsp;{{this.almanacHum[1].symbol}}</span><ng-template #nan_max_temp ><span matTooltip="no data">NaN</span></ng-template><br>
+        DewPoint<br><span class="rainblue">{{calcDewPoint() | number:'.1'}}</span>&nbsp;<span class="raingrey">°C</span>
       </div>
 
       <div class="homeweathercompass1">
         <div class="homeweathercompass-line1"></div>
         <div class="text1">
-          <div class="temperature">35.0°c</div>
-          <div class="humidity">85%</div>
+          <div *ngIf="measureTemp else nan_max_mex" matTooltip="{{measureTemp.dateTime | date: 'd/M/yy, H:mm'}}" class="temperature">{{measureTemp.quantity | number:'.1'}}{{measureTemp.symbol}}</div><ng-template #nan_max_mex ><div class="temperature" matTooltip="no data">NaN</div></ng-template>
+          <div *ngIf="measureHum else nan_max_mex" matTooltip="{{measureHum.dateTime | date: 'd/M/yy, H:mm'}}" class="humidity">{{measureHum.quantity | number:'.0'}}{{measureHum.symbol}}</div><ng-template #nan_max_mex ><div class="humidity" matTooltip="no data">NaN</div></ng-template>
         </div>
       </div>
     </div>
