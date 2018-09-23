@@ -1,0 +1,17 @@
+<!--<mat-dialog-content class="accent-color">
+  <mat-tab-group *ngFor="let sensor of sensors; let i = index">
+    <mat-tab label="{{sensor.id}}"> {{sensor.description}} </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>-->
+
+<mat-dialog-content class="accent-color">
+  <mat-tab-group>
+    <div *ngFor="let sensor of sensors; let i = index">
+      <mat-tab label="{{sensor.description}}">
+        <div *ngIf="chart" class="chart">
+          <canvas id="canvas">{{ chart }}</canvas>
+        </div>
+      </mat-tab>
+    </div>
+  </mat-tab-group>
+</mat-dialog-content>

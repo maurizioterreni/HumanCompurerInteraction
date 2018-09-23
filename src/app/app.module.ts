@@ -15,6 +15,7 @@ import { PressureCardComponent } from './layout/sensor/pressure/pressure.compone
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogMaps } from './dialogs/map/dialogMap.component';
+import { DialogChart } from './dialogs/chart/dialogChart.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
 import { AgmCoreModule } from '@agm/core';
 
@@ -31,7 +32,8 @@ import { AppComponent } from './app.component';
     WindCardComponent,
     DaylightCardComponent,
     RainCardComponent,
-    DialogMaps
+    DialogMaps,
+    DialogChart
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ import { AppComponent } from './app.component';
     MaterialModule
   ],
   providers: [],
-  entryComponents: [DialogMaps],
+  entryComponents: [DialogMaps, DialogChart],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -73,7 +73,7 @@ export class WindCardComponent implements OnInit, OnChanges {
 
   }
 
-  private getDirectionNumber(){
+  public getDirectionNumber(){
     if(this.measureDirection != null){
       let dir = Number(this.measureDirection.quantity);
       let symb = this.measureDirection.symbol;
@@ -83,7 +83,7 @@ export class WindCardComponent implements OnInit, OnChanges {
     return 'NaN';
   }
 
-  private getDirectionAngle() : string{
+  public getDirectionAngle() : string{
     if(this.measureDirection == null){
       return "NaN";
     }
@@ -107,7 +107,7 @@ export class WindCardComponent implements OnInit, OnChanges {
     else return "NaN";
   }
 
-  private getMeasureValue(measure: Measure){
+  public getMeasureValue(measure: Measure){
     if(measure == null){
       return "NaN";
     }
@@ -119,7 +119,7 @@ export class WindCardComponent implements OnInit, OnChanges {
   }
 
 
-  private getRotation() : string{
+  public getRotation() : string{
     if(this.measureDirection == null){
       return "0";
     }

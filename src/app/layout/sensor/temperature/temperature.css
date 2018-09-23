@@ -49,4 +49,4 @@ svg:not(:root){overflow:hidden;}
 
 
 
-.temperatureElement{margin-left: 46px;margin-top: 31px;}
+.temperatureElement{text-align: -webkit-center; margin-top: 31px;}

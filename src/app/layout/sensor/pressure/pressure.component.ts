@@ -25,7 +25,7 @@ export class PressureCardComponent implements OnInit, OnChanges {
     this.getCurrentData();
   }
 
-  private getCurrentData(){
+  public getCurrentData(){
     this.measureService.getLastMeasure(this.sensors[0].id)
       .subscribe((result: any) => {
           this.measurePressure = <Measure> result;
@@ -45,7 +45,7 @@ export class PressureCardComponent implements OnInit, OnChanges {
 
   }
 
-  private getMeasureValue(measure: Measure){
+  public getMeasureValue(measure: Measure){
     if(measure == null){
       return "NaN";
     }
@@ -56,7 +56,7 @@ export class PressureCardComponent implements OnInit, OnChanges {
     return qt + ' ' + measure.symbol;
   }
 
-  private getRotation() : string{
+  public getRotation() : string{
     if(this.measurePressure == null){
       return "-45";
     }

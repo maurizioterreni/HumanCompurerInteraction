@@ -3,6 +3,8 @@ import { Environment } from '../../local/environment';
 import { Sensor } from '../../models/sensor/sensor';
 import { SensorService } from '../../services/sensor/sensor.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { DialogChart } from '../../dialogs/chart/dialogChart.component';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 /**
  * @title Multi-row toolbar
@@ -21,7 +23,7 @@ export class SensorComponent implements OnInit {
   templates: number[];
   id: String;
 
-  constructor(private router: Router, private activeRoute: ActivatedRoute, private sensorService: SensorService){
+  constructor(private router: Router, private activeRoute: ActivatedRoute, private sensorService: SensorService, public dialog: MatDialog){
     this.sensors = [];
     this.templates = [];
   }
@@ -43,6 +45,14 @@ export class SensorComponent implements OnInit {
             }
           }
       });
+  }
+
+  public openChart(toChartSensors: Sensor[]) {
+    this.dialog.open(DialogChart, {
+     data: {
+       sensors: toChartSensors
+     }
+   });
   }
 
   public getSensors(templateId) : Sensor[] {

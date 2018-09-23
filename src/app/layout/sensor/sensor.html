@@ -12,6 +12,9 @@
                 <rain-card *ngIf="i=='4'" [sensors]="getSensors(i)"></rain-card>
 
             </div>
+            <div class="cardActiont">
+              <button mat-button (click)="openChart(getSensors(i))"> <i class="material-icons">show_chart</i> Open</button>
+            </div>
 
             </mat-card-content>
 
@@ -35,7 +38,7 @@
       </mat-card>
   </div>
 
-  <div class="box" *ngIf="(templates.lenght % 2) == 0 ">
+  <div class="box" *ngIf="(templates.length % 2) == 0 ">
     <div>
 			<mat-card class="card-blank" style="text-align:center;">
 

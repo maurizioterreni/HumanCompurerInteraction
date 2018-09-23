@@ -40,4 +40,11 @@ export class MeasureService {
 
     return this.http.get(this.serviceConf.getEndPoint() + 'measure/sensor/' + sensorId + '/getValueOfYear', {headers});
   }
+
+  getMeasure(sensorId) {
+    const headers = new HttpHeaders()
+        .set('Content-Type', 'application/json');
+
+    return this.http.get(this.serviceConf.getEndPoint() + 'measure/sensor/' + sensorId + '/getMeasure', {headers});
+  }
 }
