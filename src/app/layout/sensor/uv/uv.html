@@ -9,9 +9,9 @@
   		<div class="weather34luxrate"><span><span class="luxrate"> 0<span> Lux</span> </span> </span></div>
 
   		<div class="weather34i-uvrate-bar">
-  			<div class="bar bar-1" style="height:100px;max-height:100px;"><div class="bar bar-inner" style="height: 1px;"></div></div>
+  			<div class="bar bar-1" style="height:100px;max-height:100px;"><div class="bar bar-inner"  [ngStyle]="{ 'height': '+getUvRange()+'px}"></div></div>
   		</div>
-  		<div class="weather34iuvrate"><span class="greenuv">0<br><span>UVI</span></span> </div>
+  		<div class="weather34iuvrate"><span class="greenuv">{{getMeasureValue(measureUv)}}<br><span>UVI</span></span> </div>
   	</div>
  </div>
 
