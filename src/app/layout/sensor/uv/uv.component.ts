@@ -15,7 +15,7 @@ export class UvCardComponent implements OnInit, OnChanges {
   measureUv: Measure;
 //  measureLux: Measure;
 
-  constructor(measureService : MeasureService) {
+  constructor(private measureService: MeasureService) {
     setInterval(() => {
         this.getCurrentData();
      }, 900000);//15 minuti
@@ -41,7 +41,7 @@ export class UvCardComponent implements OnInit, OnChanges {
       return 'NaN';
     }
 
-    return Math.round(measure.quantity);
+    return Math.round(Number(measure.quantity));
   }
 
   public getUvRange(){
@@ -49,7 +49,7 @@ export class UvCardComponent implements OnInit, OnChanges {
       return '0';
     }
 
-    let value = Number(this.measurePressure.quantity);
+    let value = Number(this.measureUv.quantity);
     let num = value;
     return (((num / 11) * 100)) + '';
   }
