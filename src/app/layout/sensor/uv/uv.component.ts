@@ -16,6 +16,7 @@ export class UvCardComponent implements OnInit, OnChanges {
 //  measureLux: Measure;
 
   constructor(private measureService: MeasureService) {
+    //this.getCurrentData();
     setInterval(() => {
         this.getCurrentData();
      }, 900000);//15 minuti
