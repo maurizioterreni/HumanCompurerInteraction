@@ -9,6 +9,7 @@
                 <temperature-card *ngIf="i=='0'" [sensors]="getSensors(i)"></temperature-card>
                 <wind-card *ngIf="i=='1'" [sensors]="getSensors(i)"></wind-card>
                 <pressure-card *ngIf="i=='2'" [sensors]="getSensors(i)"></pressure-card>
+                <uv-card *ngIf="i=='3'" [sensors]="getSensors(i)"></uv-card>
                 <rain-card *ngIf="i=='4'" [sensors]="getSensors(i)"></rain-card>
 
             </div>

@@ -12,6 +12,7 @@ import { RainCardComponent } from './layout/sensor/rain/rain.component';
 import { WindCardComponent } from './layout/sensor/wind/wind.component';
 import { DaylightCardComponent } from './layout/sensor/daylight/daylight.component';
 import { PressureCardComponent } from './layout/sensor/pressure/pressure.component';
+import { UvCardComponent } from './layout/sensor/uv/uv.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogMaps } from './dialogs/map/dialogMap.component';
@@ -31,6 +32,7 @@ import { AppComponent } from './app.component';
     PressureCardComponent,
     WindCardComponent,
     DaylightCardComponent,
+    UvCardComponent,
     RainCardComponent,
     DialogMaps,
     DialogChart
