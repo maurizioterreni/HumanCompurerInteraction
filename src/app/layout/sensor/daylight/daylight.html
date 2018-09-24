@@ -10,15 +10,12 @@
         <div class="sunlightday">
           <svg version="1.1" id="weather34 daylight" x="0px" y="0px" width="12" height="12" fill="#ff8841" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
           <g><path fill="#ff8841" d="M270.3,500c0,126.9,102.8,229.7,229.7,229.7S729.7,626.9,729.7,500c0-126.9-102.8-229.7-229.7-229.7S270.3,373.1,270.3,500z"></path><path d="M500,193.8c16.8,0,30.6-13.8,30.6-30.6V40.6c0-16.8-13.8-30.6-30.6-30.6c-16.8,0-30.6,13.8-30.6,30.6v122.5C469.4,180,483.2,193.8,500,193.8z"></path><path d="M500,806.3c-16.8,0-30.6,13.8-30.6,30.6v122.5c0,16.8,13.8,30.6,30.6,30.6c16.8,0,30.6-13.8,30.6-30.6V836.9C530.6,820,516.8,806.3,500,806.3z"></path><path d="M959.4,469.4H836.9c-16.8,0-30.6,13.8-30.6,30.6c0,16.8,13.8,30.6,30.6,30.6h122.5c16.8,0,30.6-13.8,30.6-30.6C990,483.2,976.2,469.4,959.4,469.4z"></path><path d="M193.8,500c0-16.8-13.8-30.6-30.6-30.6H40.6C23.8,469.4,10,483.2,10,500c0,16.8,13.8,30.6,30.6,30.6h122.5C180,530.6,193.8,516.8,193.8,500z"></path><path d="M239.7,284.1c6.1,6.1,13.8,9.2,21.4,9.2s15.3-3.1,21.4-9.2c12.3-12.3,12.3-30.6,0-42.9l-87.3-87.3c-12.3-12.3-30.6-12.3-42.9,0s-12.3,30.6,0,42.9L239.7,284.1z"></path><path d="M760.3,715.9c-12.3-12.3-30.6-12.3-42.9,0s-12.3,30.6,0,42.9l87.3,87.3c6.1,6.1,13.8,9.2,21.4,9.2s15.3-3.1,21.4-9.2c12.3-12.3,12.3-30.6,0-42.9L760.3,715.9z"></path><path d="M738.9,291.8c7.7,0,15.3-3.1,21.4-9.2l87.3-87.3c12.3-12.3,12.3-30.6,0-42.9s-30.6-12.3-42.9,0l-88.8,87.3c-12.3,12.3-12.3,30.6,0,42.9C722,288.7,729.7,291.8,738.9,291.8z"></path><path d="M239.7,715.9l-87.3,87.3c-12.3,12.3-12.3,30.6,0,42.9c6.1,6.1,13.8,9.2,21.4,9.2s15.3-3.1,21.4-9.2l87.3-87.3c12.3-12.3,12.3-30.6,0-42.9C271.8,705.2,251.9,705.2,239.7,715.9z"></path></g>
-        </svg> <span class="strongnumbers"> 12:20 </span>hrs <br> <span class="period">Total Daylight</span>
+        </svg> <span class="strongnumbers"> {{totalSun | number: '.2'}} </span>hrs <br> <span class="period">Total Daylight</span>
         </div>
 
         <div class="sundarkday">
           <svg id="i-ban" viewBox="0 0 32 32" width="8" height="8" fill="#777" stroke="#777" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><circle cx="16" cy="16" r="14"></circle><path d="M6 6 L26 26"></path></svg>
-          <span class="strongnumbers">11:
-            <span class="minutes">39 </span>
-          </span>hrs <br>
-          <span class="period">Total Darkness</span>
+          <span class="strongnumbers">{{totalNight | number: '.2'}}</span>hrs <br><span class="period">Total Darkness</span>
         </div>
 
 

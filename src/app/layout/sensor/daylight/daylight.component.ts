@@ -11,21 +11,19 @@ export class DaylightCardComponent implements OnInit, OnChanges {
   now = Date.now();
   sunset : any;
   sunrise : any;
-  
+  totalSun: any;
+  totalNight: any;
+
   constructor() {
-    //this.d = new Date(date);
-  //  this.sunrise = new Date(this.now.getFullYear() + '', this.now.getMonth() + '', this.now.getDay() + '', '6', '50');
-  //  this.sunset = new Date(this.now.getFullYear() + '', this.now.getMonth() + '', this.now.getDay() + '', '19', '10');
     this.sunrise = new Date(this.now);
     this.sunset = new Date(this.now);
+    this.totalSun = 0;
+    this.totalNight = 0;
 
-  //  this.sunrise.setHours(6,50,0,0);
-//    this.sunset.setHours(19,10,0,0);
+    this.calculateSunriseSunset(43.69489556632679,10.951802242615486);
 
-    this.calculateHour(43.69489556632679,10.951802242615486,true);
-    this.calculateHour(43.69489556632679,10.951802242615486,false);
 
-  //  console.log(this.sunrise.getFullYear() + '  ' + (this.sunrise.getMonth() + 1));
+
 
     setInterval(() => {
         this.now =  Date.now();
@@ -41,7 +39,28 @@ export class DaylightCardComponent implements OnInit, OnChanges {
 
   }
 
-  private calculateHour(latitude,longitude, rise){
+  private calculateSunriseSunset(latitude,longitude){
+    let localSunrise = this.calculateHour(latitude,longitude, true);
+    let localSunset = this.calculateHour(latitude,longitude, false);
+
+    let hour = Math.floor(localSunrise);
+    let minute = Math.floor((localSunrise - hour) * 100);
+
+    this.sunrise.setHours(hour,minute,0,0);
+
+
+    hour = Math.floor(localSunset);
+    minute = Math.floor((localSunset - hour) * 100);
+
+    this.sunset.setHours(hour,minute,0,0);
+
+    this.totalSun = Math.round((localSunset - localSunrise) * 100) / 100;
+    this.totalNight = Math.round((24 - this.totalSun) * 100) / 100;
+
+
+  }
+
+  private calculateHour(latitude,longitude,rise){
     let localOffset = 2.0;
     let n1 = Math.floor(275 * (this.sunrise.getMonth() + 1) / 9);
     let n2 = Math.floor((this.sunrise.getMonth() + 10) /12 );
@@ -109,14 +128,16 @@ export class DaylightCardComponent implements OnInit, OnChanges {
     let localT = UT + localOffset;
     localT = this.mod(localT, 24);
 
-    let hour = Math.floor(localT);
+    return localT;
+
+  /*  let hour = Math.floor(localT);
     let minute = Math.floor((localT - hour) * 100);
 
     if(rise){
       this.sunrise.setHours(hour,minute,0,0);
     }else{
       this.sunset.setHours(hour,minute,0,0);
-    }
+    }*/
   }
 
   private mod(x, lim){
@@ -145,12 +166,6 @@ export class DaylightCardComponent implements OnInit, OnChanges {
   private acos(x){
     return Math.acos(x) *180/Math.PI;
   }
-
-/*
-  getRotation(value) : string{
-    let num = value - 958;
-    return (((num / 100) * 180) - 45) + '';
-  }*/
 
   public getRotation() : string{
     var num = this.now - this.sunrise;
