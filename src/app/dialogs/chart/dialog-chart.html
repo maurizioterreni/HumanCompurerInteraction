@@ -5,13 +5,12 @@
 </mat-dialog-content>-->
 
 <mat-dialog-content class="accent-color">
-  <mat-tab-group>
+  <mat-tab-group (selectedTabChange)="changeChart($event)">
     <div *ngFor="let sensor of sensors; let i = index">
-      <mat-tab label="{{sensor.description}}">
-        <div *ngIf="chart" class="chart">
-          <canvas id="canvas">{{ chart }}</canvas>
-        </div>
-      </mat-tab>
+      <mat-tab   label="{{sensor.description}}"></mat-tab>
     </div>
   </mat-tab-group>
+  <div *ngIf="chart" class="chart">
+    <canvas id="canvas">{{ chart }}</canvas>
+  </div>
 </mat-dialog-content>

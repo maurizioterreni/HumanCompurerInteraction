@@ -9,7 +9,7 @@
   		<div class="weather34luxrate"><span><span class="luxrate"> 0<span style="margin-top: 3px;"> Lux</span> </span> </span></div>
 
   		<div class="weather34i-uvrate-bar">
-  			<div class="bar bar-1" style="height:100px;max-height:100px;"><div class="bar bar-inner"  [style.height.px]="getUvRange()"></div></div>
+  			<div class="bar bar-1" style="height:100px;max-height:100px;"><div class="bar bar-inner" [style.background]="getUvColor()"  [style.height.px]="getUvRange()"></div></div>
   		</div>
   		<div class="weather34iuvrate"><span class="greenuv">{{getMeasureValue(measureUv)}}<br><span>UVI</span></span> </div>
   	</div>

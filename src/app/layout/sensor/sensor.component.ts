@@ -62,8 +62,8 @@ export class SensorComponent implements OnInit {
         sensorArray.push(i);
       }
     }
-    console.log("template id: " + templateId);
-    console.log(sensorArray);
+//    console.log("template id: " + templateId);
+//    console.log(sensorArray);
     return sensorArray;
   }
 

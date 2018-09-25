@@ -86,4 +86,4 @@ a{font-weight:400;}
 .thearrow3{-webkit-transform:rotate(75.8deg);-moz-transform:rotate(75.8deg);-o-transform:rotate(75.8deg);-ms-transform:rotate(75.8deg);transform:rotate(75.8deg);position:absolute;z-index:200;top:0;left:50%;margin-left:-5px;width:10px;height:50%;-webkit-transform-origin:50% 100%;-moz-transform-origin:50% 100%;-o-transform-origin:50% 100%;-ms-transform-origin:50% 100%;transform-origin:50% 100%;-webkit-transition-duration:3s;-moz-transition-duration:3s;-o-transition-duration:3s;-ms-transition-duration:3s;transition-duration:3s;}
 .thearrow4{-webkit-transform:rotate(81.5deg);-moz-transform:rotate(81.5deg);-o-transform:rotate(81.5deg);-ms-transform:rotate(81.5deg);transform:rotate(81.5deg);position:absolute;z-index:200;top:0;left:43%;margin-left:-6px;width:10px;height:50%;-webkit-transform-origin:50% 100%;-moz-transform-origin:50% 100%;-o-transform-origin:50% 100%;-ms-transform-origin:50% 100%;transform-origin:50% 100%;}
 
-.pressureElement{text-align: -webkit-center; margin-top: 31px;}
+.pressureElement{text-align: -webkit-center; margin-top: 31px;margin-left: 40px;}

@@ -11,7 +11,6 @@ export class RainCardComponent implements OnInit, OnChanges {
   @Input() sensors: Sensor[];
 
   constructor() {
-
   }
 
   ngOnInit() {

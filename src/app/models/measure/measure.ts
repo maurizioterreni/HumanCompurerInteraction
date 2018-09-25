@@ -3,5 +3,5 @@ export interface Measure {
     quantity: string;
     name: string;
     symbol: string;
-    dateTime: string;
+    dateTime: Date;
 }

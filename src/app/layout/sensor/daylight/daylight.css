@@ -58,7 +58,7 @@ svg:not(:root){overflow:hidden;}
 
 
 
-.daylightElement{text-align: -webkit-center; margin-top: 31px;}
+.daylightElement{text-align: -webkit-center; margin-top: 31px;margin-left: 40px;}
 
 @font-face{
   font-family:weathericons;

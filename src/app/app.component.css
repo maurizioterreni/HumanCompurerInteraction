@@ -71,6 +71,8 @@ mat-sidenav {
   left: 0;
   width: 100%;
   z-index: 10;
+  height: 30px;
+  font-size: 10px;
 }
 
 .row {
