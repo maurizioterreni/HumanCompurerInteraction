@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { SensorComponent } from './layout/sensor/sensor.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
+import { LoginComponent } from './layout/login/login.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,10 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '/dashboard'
-  }
+  },
+  {
+    path: 'login',
+    component: LoginComponent },
 ];
 
 @NgModule({

@@ -13,7 +13,7 @@
       <mat-nav-list>
         <a routerLink="weatherstationMap" routerLinkActive="active" mat-list-item class="ml-2" style="font-size:15px;">WeatherStation Map</a>
         <a routerLink="dashboard" routerLinkActive="active" mat-list-item class="ml-2" style="font-size:15px;">Dashboard</a>
-        <a mat-list-item class="ml-2" style="font-size:15px;">Login</a>
+        <a routerLink="login" routerLinkActive="active" mat-list-item class="ml-2" style="font-size:15px;">Login</a>
         <a mat-list-item class="ml-2" style="font-size:15px;">API</a>
       </mat-nav-list>
 
@@ -33,6 +33,7 @@
   <div class="wrapper">
 
     <div class="content">
+      <alert></alert>
       <router-outlet></router-outlet>
     </div>
 
