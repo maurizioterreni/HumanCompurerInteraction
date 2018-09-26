@@ -5,7 +5,8 @@ import { AlertService } from '../../services/alert/alert.service';
 
 @Component({
     selector: 'alert',
-    templateUrl: 'alert.component.html'
+    templateUrl: 'alert.component.html',
+    providers: [ AlertService ]
 })
 
 export class AlertComponent implements OnInit, OnDestroy {

@@ -24,6 +24,8 @@ import { JwtInterceptor } from './layout/helper/jwt.interceptor';
 import { ErrorInterceptor } from './layout/helper/error.interceptor';
 import { LoginComponent } from './layout/login/login.component';
 
+import { AuthenticationService } from './services/authentication/authentication.service';
+
 import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
@@ -43,21 +45,21 @@ import { AppComponent } from './app.component';
     DialogMaps,
     DialogChart,
     AlertComponent,
-    LoginComponent,
-    FormsModule,
-    BrowserModule,
-    ReactiveFormsModule
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyB9t2Ki03ItPGImdj2sro-hMyBcQEsnloc'}),
     MaterialModule
   ],
   providers: [
+    AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],

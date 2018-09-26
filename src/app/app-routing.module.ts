@@ -25,12 +25,13 @@ const routes: Routes = [
     component: WeatherStationMapComponent,
   },
   {
-    path: '**',
-    redirectTo: '/dashboard'
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: 'login',
-    component: LoginComponent },
+    path: '**',
+    redirectTo: '/dashboard'
+  }
 ];
 
 @NgModule({
