@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentInit, Component, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Component, Input, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 import { Environment } from './local/environment';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
@@ -8,10 +8,12 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements AfterContentInit {
+export class AppComponent  implements OnInit {
 
   constructor() {
   }
 
+  OnInit(){
 
+  }
 }
