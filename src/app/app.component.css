@@ -1,102 +1,33 @@
-.spacer {
-  flex: 1 1 auto;
+.example-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.wrapper{
-  margin-bottom: 100px;
-  margin-top: 63px;
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.menuLeft{
-  margin-top: 63px;
+.example-sidenav {
+  padding: 20px;
 }
-
 .container {
   margin: 0 auto -100px;
   height: 100%;
-  overflow: auto;
+  overflow: auto;a
   margin-left: 5px;
 }
 
 
-
-mat-sidenav {
-  width: 250px;
-}
-
-.circle {
-  border-radius: 50%;
-}
-
-.with-bg {
-  background-color: #fff;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  max-height: 130px;
-}
-
-.no-shadow {
-  box-shadow: none !important;
-}
-
-::ng-deep .mat-expansion-panel-body {
-  padding: 0px !important;
-  padding-left: 10px !important;
-}
-
-.header-box-shadow {
-  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+.header{
   position: fixed;
-  z-index: 11;
+
   top: 0px;
-  left: 0;
 }
 
-.bottom-to-top {
-  border: 0px;
-  border-right: 1px;
-  border-style: solid;
-  border-image: linear-gradient(to top, #c1c1c1, rgba(0, 0, 0, 0)) 1 100%;
-  margin-top: 63px;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  height: 30px;
-  font-size: 10px;
-}
-
-.row {
-  padding: 10px 0;
-}
-
-.row span {
-  display: inline-block;
-  width: 75px;
-  padding: 0 0 0 3px;
-  overflow: hidden;
-  text-align: left;
-  white-space: nowrap;
-  transition: width 0.5s;
-}
-
-.spacer {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-}
-
-
-
-.sidenav-content{
-  position: static !important;
+.menu{
+  width: 280px;
 }

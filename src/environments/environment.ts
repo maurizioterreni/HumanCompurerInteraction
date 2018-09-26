@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  version: 'DEV'
+  version: '0.3.0',
+  title:  "My WeatherStation";
 };
 /*
  * In development mode, to ignore zone related error stack frames such as

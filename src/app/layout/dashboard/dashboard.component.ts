@@ -18,12 +18,10 @@ import { DialogMaps } from '../../dialogs/map/dialogMap.component';
 
 
 export class DashboardComponent implements OnInit {
-  private environment: Environment;
   weatherstations: WeatherStation[];
   checked = false;
 
   constructor(private weatherStationService: WeatherStationService, public dialog: MatDialog){
-    this.environment = new Environment();
     this.weatherstations = [];
   }
 

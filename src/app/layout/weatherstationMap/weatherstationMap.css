@@ -1,10 +1,10 @@
 agm-map{
 
 	position: relative;
-  height: calc(100vh - 4em - 64px);
+  height: calc(102vh - 2em - 64px);
 }
 
 .container {
 	position: relative;
-	height: calc(92vh - 4em - 64px);
+/*	height: calc(92vh - 4em - 64px);*/
 }

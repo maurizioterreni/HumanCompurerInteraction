@@ -1,15 +1,4 @@
-export class Environment {
-    private title = "My WeatherStation";
-    private version = "0.2.19";
-
-    constructor() {}
-
-
-    getTitle() {
-      return this.title;
-    }
-
-    getVersion() {
-      return this.version;
-    }
+export const Environment = {
+  version: '0.3.0',
+  title:  "My WeatherStation";
 }
