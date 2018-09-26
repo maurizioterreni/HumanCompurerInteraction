@@ -6,7 +6,9 @@ import { ServiceConfig } from '../serviceConfig';
 @Injectable()
 export class AuthenticationService {
     private serviceConf : ServiceConfig;
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+      this.serviceConf = new ServiceConfig();
+    }
 
     login(username: string, password: string) {
         return this.http.post<any>(this.serviceConf.getEndPoint() + '/login', { username: username, password: password })
@@ -23,6 +25,6 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        sessionStorage.removeItem('currentUser');
     }
 }

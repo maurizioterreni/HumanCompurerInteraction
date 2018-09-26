@@ -1,7 +1,9 @@
-import { Component, OnInit, Component, Input, ViewChild } from '@angular/core';
-import { MatSidenav } from '@angular/material';
-import { Environment } from './local/environment';
+import { Component, OnInit } from '@angular/core';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { Subscription } from 'rxjs';
+
+//import { Environment } from './local/environment';
+
 
 @Component({
   selector: 'app-root',
@@ -9,11 +11,14 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit {
+//  public environment: Environment;
 
-  constructor() {
+
+  constructor(media: ObservableMedia) {
+    // this.environment = new Environment();
   }
 
-  OnInit(){
+  ngOnInit() {
 
   }
 }

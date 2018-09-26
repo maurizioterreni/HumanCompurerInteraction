@@ -25,6 +25,8 @@ import { ErrorInterceptor } from './layout/helper/error.interceptor';
 import { LoginComponent } from './layout/login/login.component';
 
 import { AuthenticationService } from './services/authentication/authentication.service';
+import { AlertService } from './services/alert/alert.service';
+
 
 import { AgmCoreModule } from '@agm/core';
 
@@ -59,6 +61,7 @@ import { AppComponent } from './app.component';
     MaterialModule
   ],
   providers: [
+    AlertService,
     AuthenticationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }

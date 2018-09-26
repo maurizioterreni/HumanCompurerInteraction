@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Environment } from '../../local/environment';
 import { Sensor } from '../../models/sensor/sensor';
 import { SensorService } from '../../services/sensor/sensor.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -18,7 +17,6 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 
 export class SensorComponent implements OnInit {
-  private environment: Environment;
   sensors: Sensor[];
   templates: number[];
   id: String;
