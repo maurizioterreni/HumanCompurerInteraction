@@ -4,6 +4,7 @@ import { Environment } from '../../local/environment';
 import { WeatherStationService } from '../../services/weatherstation/weatherstation.service';
 import { WeatherStation } from '../../models/weatherstation/weatherstation';
 import { DialogMaps } from '../../dialogs/map/dialogMap.component';
+import { Observable, Subject, BehaviorSubject  } from 'rxjs';
 
 
 /**
@@ -20,6 +21,8 @@ import { DialogMaps } from '../../dialogs/map/dialogMap.component';
 export class DashboardComponent implements OnInit {
   weatherstations: WeatherStation[];
   checked = false;
+
+  subject = new Subject<string>();
 
   constructor(private weatherStationService: WeatherStationService, public dialog: MatDialog){
     this.weatherstations = [];
@@ -44,5 +47,13 @@ export class DashboardComponent implements OnInit {
           lng: longitude
         }
       });
+  }
+
+  click(){
+    this.subject.next("Eureka");
+
+    this.subject.subscribe((data) => {
+      console.log("Subscriber 2 got data >>>>> "+ data);
+    });
   }
 }
