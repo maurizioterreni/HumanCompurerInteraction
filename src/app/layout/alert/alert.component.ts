@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-
 import { AlertService } from '../../services/alert/alert.service';
 
 @Component({
@@ -12,18 +11,19 @@ import { AlertService } from '../../services/alert/alert.service';
 })
 
 export class AlertComponent implements OnInit, OnDestroy {
-    private subscription: Subscription;
     message: any;
+    private subscription: Subscription;
 
     constructor(private alertService: AlertService) {
 
     }
 
     ngOnInit() {
-      this.alertService.change.subscribe(message => {
+      this.subscription = this.alertService.event.subscribe((message) => {
         this.message = message;
         console.log('AlertComponent message ' + this.message.type);
       });
+
     }
 
     ngOnDestroy() {

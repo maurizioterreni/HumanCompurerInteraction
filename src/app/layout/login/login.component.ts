@@ -56,11 +56,11 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    if(error.status == 401){
+                    //if(error.status == 401){
                       console.log('login.component message');
                       this.alertService.error({ type: 'error', message: 'message' });
               //        console.log({ type: 'error', message: error.statusText });
-                    }
+                  //}
 
                     this.loading = false;
                 });

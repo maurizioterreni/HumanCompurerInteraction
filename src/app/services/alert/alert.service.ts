@@ -1,15 +1,14 @@
 import { Injectable, HostListener , Output, EventEmitter} from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
-import { Observable, Subject, BehaviorSubject  } from 'rxjs';
+import { Observable, Subject  } from 'rxjs';
 
 @Injectable()
 export class AlertService {
-    private subject = new Subject<any>();
-    private keepAfterNavigationChange = false;
-    @Output() change: EventEmitter<any> = new EventEmitter();
+    public _subject = new Subject<any>();
+    public event = this._subject.asObservable();
 
     constructor(private router: Router) {
-        // clear alert message on route change
+    /*    // clear alert message on route change
         router.events.subscribe(event => {
             if (event instanceof NavigationStart) {
                 if (this.keepAfterNavigationChange) {
@@ -20,22 +19,21 @@ export class AlertService {
                     this.subject.next();
                 }
             }
-        });
+        });*/
     }
 
-    success(message: string, keepAfterNavigationChange = false) {
-        this.keepAfterNavigationChange = keepAfterNavigationChange;
-        this.subject.next({ type: 'success', text: message });
+    success(message: string,) {
+        this._subject.next({ type: 'success', text: message });
     }
 
     error(message: any, keepAfterNavigationChange = false) {
     //    this.keepAfterNavigationChange = keepAfterNavigationChange;
     //    this.subject.next({ type: 'error', text: message });
         console.log('alert.service message');
-        this.change.emit(message);
+        this._subject.next(message);
     }
 
-    getMessage(): Observable<any> {
+  /*  getMessage(): Observable<any> {
         return this.subject.asObservable();
-    }
+    }*/
 }
