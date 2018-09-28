@@ -20,8 +20,6 @@ import { DialogMaps } from './dialogs/map/dialogMap.component';
 import { DialogChart } from './dialogs/chart/dialogChart.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
 import { AlertComponent } from './layout/alert/alert.component';
-import { JwtInterceptor } from './layout/helper/jwt.interceptor';
-import { ErrorInterceptor } from './layout/helper/error.interceptor';
 import { LoginComponent } from './layout/login/login.component';
 
 import { AuthenticationService } from './services/authentication/authentication.service';
@@ -62,9 +60,7 @@ import { AppComponent } from './app.component';
   ],
   providers: [
     AlertService,
-    AuthenticationService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    AuthenticationService
   ],
   entryComponents: [DialogMaps, DialogChart],
   bootstrap: [AppComponent]

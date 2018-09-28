@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, HostListener , Output, EventEmitter} from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { Observable, Subject, BehaviorSubject  } from 'rxjs';
 
@@ -6,6 +6,7 @@ import { Observable, Subject, BehaviorSubject  } from 'rxjs';
 export class AlertService {
     private subject = new Subject<any>();
     private keepAfterNavigationChange = false;
+    @Output() change: EventEmitter<any> = new EventEmitter();
 
     constructor(private router: Router) {
         // clear alert message on route change
@@ -27,9 +28,11 @@ export class AlertService {
         this.subject.next({ type: 'success', text: message });
     }
 
-    error(message: string, keepAfterNavigationChange = false) {
-        this.keepAfterNavigationChange = keepAfterNavigationChange;
-        this.subject.next({ type: 'error', text: message });
+    error(message: any, keepAfterNavigationChange = false) {
+    //    this.keepAfterNavigationChange = keepAfterNavigationChange;
+    //    this.subject.next({ type: 'error', text: message });
+        console.log('alert.service message');
+        this.change.emit(message);
     }
 
     getMessage(): Observable<any> {
