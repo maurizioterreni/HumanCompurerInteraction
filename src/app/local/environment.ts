@@ -1,4 +1,4 @@
-export const Environment = {
-  version: '0.3.0',
-  title:  "My WeatherStation"
+export class Environment {
+  public static VERSION = 'beta 0.3.1';
+  public static TITLE =  "My WeatherStation";
 }

@@ -19,11 +19,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DialogMaps } from './dialogs/map/dialogMap.component';
 import { DialogChart } from './dialogs/chart/dialogChart.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
-import { AlertComponent } from './layout/alert/alert.component';
 import { LoginComponent } from './layout/login/login.component';
-
-import { AuthenticationService } from './services/authentication/authentication.service';
-import { AlertService } from './services/alert/alert.service';
+import { AlertModule } from 'ngx-alerts';
 
 
 import { AgmCoreModule } from '@agm/core';
@@ -44,7 +41,6 @@ import { AppComponent } from './app.component';
     RainCardComponent,
     DialogMaps,
     DialogChart,
-    AlertComponent,
     LoginComponent
   ],
   imports: [
@@ -55,13 +51,11 @@ import { AppComponent } from './app.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AlertModule.forRoot(),
     AgmCoreModule.forRoot({apiKey: 'AIzaSyB9t2Ki03ItPGImdj2sro-hMyBcQEsnloc'}),
     MaterialModule
   ],
-  providers: [
-    AlertService,
-    AuthenticationService
-  ],
+  providers: [],
   entryComponents: [DialogMaps, DialogChart],
   bootstrap: [AppComponent]
 })

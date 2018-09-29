@@ -1,3 +1,4 @@
+<ngx-alerts></ngx-alerts>
 <div class="container grid2x2">
   <div class="box" *ngFor="let weatherStation of weatherstations; let i = index">
     <div *ngIf="checked == false || (checked == true && isLiked(weatherStation.id)) ">
@@ -26,5 +27,3 @@
 		</div>
 	</div>
 </div>
-
-<button mat-button (click)="click()"><i class="material-icons">my_location</i> CLICCAMI</button>

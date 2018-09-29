@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertsService } from 'angular-alert-module';
 import { first } from 'rxjs/operators';
+import { AlertService } from 'ngx-alerts';
 
 import { AuthenticationService } from '../../services/authentication/authentication.service';
-import { AlertService } from '../../services/alert/alert.service';
+
 
 @Component({
   templateUrl: 'login.html',
@@ -56,13 +58,13 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
-                    //if(error.status == 401){
-                      console.log('login.component message');
-                      this.alertService.error({ type: 'error', message: 'message' });
+                    if(error.status == 401){
+                      this.alertService.danger('Wrong username or password');
+                    }else if (error.status == 404){
+                      this.alertService.danger('Page not found');
+                    }
               //        console.log({ type: 'error', message: error.statusText });
                   //}
-
-                    this.loading = false;
                 });
     }
 }

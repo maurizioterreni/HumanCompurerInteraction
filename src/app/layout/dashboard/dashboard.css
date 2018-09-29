@@ -4,10 +4,42 @@
   box-shadow: none !important;
 }
 .weatherstation-card{
-  width: 400px;
+  max-width: 550px;
   height: 340px;
   margin: auto;
   margin-top: 10px;
+}
+
+
+@media (min-width: 1251px) {
+    .weatherstation-card {
+        width: 550px;
+    }
+}
+
+
+@media (min-width: 1001px) and (max-width: 1250px) {
+    .weatherstation-card {
+        width: 400px;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+    .weatherstation-card {
+        width: 350px;
+    }
+}
+
+@media (min-width: 691px) and (max-width: 800px) {
+    .weatherstation-card {
+        width: 290px;
+    }
+}
+
+@media (max-width: 690px) {
+    .weatherstation-card {
+        width: 255px;
+    }
 }
 
 .weatherstation-card-content img{

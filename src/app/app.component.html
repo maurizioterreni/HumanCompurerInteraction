@@ -18,7 +18,7 @@
       <a routerLink="login" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item>Login</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content class="content">
     <mat-toolbar color="primary">
       <button
         type="button"
@@ -27,10 +27,12 @@
         (click)="sidenav.open()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>My Weather Station</span>
+      <span>{{getTitle()}}</span>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <alert></alert>
     <router-outlet></router-outlet>
+    <mat-toolbar color="primary" class="footer">
+      <span class="version">{{getVersion()}}</span>
+    </mat-toolbar>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -5,6 +5,8 @@ import { WeatherStationService } from '../../services/weatherstation/weatherstat
 import { WeatherStation } from '../../models/weatherstation/weatherstation';
 import { DialogMaps } from '../../dialogs/map/dialogMap.component';
 import { Observable, Subject, BehaviorSubject  } from 'rxjs';
+import { AlertService } from 'ngx-alerts';
+
 
 
 /**
@@ -14,7 +16,7 @@ import { Observable, Subject, BehaviorSubject  } from 'rxjs';
   selector: 'dashboard-app',
   templateUrl: 'dashboard.html',
   styleUrls: ['dashboard.css'],
-  providers: [WeatherStationService]
+  providers: [ AlertService, WeatherStationService ]
 })
 
 
@@ -22,9 +24,7 @@ export class DashboardComponent implements OnInit {
   weatherstations: WeatherStation[];
   checked = false;
 
-  subject = new Subject<string>();
-
-  constructor(private weatherStationService: WeatherStationService, public dialog: MatDialog){
+  constructor(private alertService: AlertService, private weatherStationService: WeatherStationService, public dialog: MatDialog){
     this.weatherstations = [];
   }
 
@@ -32,6 +32,17 @@ export class DashboardComponent implements OnInit {
     this.weatherStationService.getAllWeathrStation()
       .subscribe((response: WeatherStation[]) => {
           this.weatherstations = response;
+      },
+      error => {
+          if (error.status == 404){
+            this.alertService.danger('Page not found');
+          }else if(error.status == 0){
+            this.alertService.danger('Can\'t connect to server');
+          }
+
+          console.log(error);
+    //        console.log({ type: 'error', message: error.statusText });
+        //}
       });
     //this.weatherstations = this.weatherStationService.getAllWeathrStation();
   }
@@ -49,11 +60,5 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  click(){
-    this.subject.next("Eureka");
 
-    this.subject.subscribe((data) => {
-      console.log("Subscriber 2 got data >>>>> "+ data);
-    });
-  }
 }
