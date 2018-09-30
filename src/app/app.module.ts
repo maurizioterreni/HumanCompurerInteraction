@@ -20,6 +20,7 @@ import { DialogMaps } from './dialogs/map/dialogMap.component';
 import { DialogChart } from './dialogs/chart/dialogChart.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
 import { LoginComponent } from './layout/login/login.component';
+import { PersonalComponent } from './layout/personal/personal.component';
 import { AlertModule } from 'ngx-alerts';
 
 
@@ -41,7 +42,8 @@ import { AppComponent } from './app.component';
     RainCardComponent,
     DialogMaps,
     DialogChart,
-    LoginComponent
+    LoginComponent,
+    PersonalComponent
   ],
   imports: [
     BrowserModule,

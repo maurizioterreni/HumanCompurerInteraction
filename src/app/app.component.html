@@ -16,10 +16,12 @@
       <a routerLink="weatherstationMap" routerLinkActive="active" (click)="sidenav.close()" mat-list-item>Map</a>
       <a routerLink="dashboard" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item>Dashboard</a>
       <a routerLink="login" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item>Login</a>
+      <a *ngIf="isLogIn()" routerLink="personal" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item>Personal Page</a>
+      <a *ngIf="isLogIn()" (click)="logout()"  mat-list-item>Logout</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="content">
-    <mat-toolbar color="primary">
+    <mat-toolbar color="primary" class="header">
       <button
         type="button"
         aria-label="Toggle sidenav"
