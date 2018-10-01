@@ -15,9 +15,10 @@
     <mat-nav-list>
       <a routerLink="weatherstationMap" routerLinkActive="active" (click)="sidenav.close()" mat-list-item>Map</a>
       <a routerLink="dashboard" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item>Dashboard</a>
-      <a routerLink="login" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item>Login</a>
+      <a *ngIf="!isLogIn()" routerLink="login" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item>Login</a>
       <a *ngIf="isLogIn()" routerLink="personal" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item>Personal Page</a>
-      <a *ngIf="isLogIn()" (click)="logout()"  mat-list-item>Logout</a>
+      <a *ngIf="isLogIn()" routerLink="myWeather" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item>My WeatherStation</a>
+      <a *ngIf="isLogIn()" (click)="sidenav.close();logout()"  mat-list-item>Logout</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="content">
@@ -33,6 +34,7 @@
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
+    <cookie-law learnMore="/learn-more"></cookie-law>
     <mat-toolbar color="primary" class="footer">
       <span class="version">{{getVersion()}}</span>
     </mat-toolbar>

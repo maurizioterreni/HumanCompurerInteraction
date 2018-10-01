@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../../models/user/user';
 
 @Component({
   selector: 'personal-card',
@@ -9,15 +10,22 @@ import { Router } from '@angular/router';
 })
 export class PersonalComponent implements OnInit {
 
+  user: User;
+  buttonEnable = false;
 
   constructor(private router: Router) {
-    if(JSON.parse(sessionStorage.getItem('currentUser')) == null){
+    this.user = JSON.parse(localStorage.getItem('currentUser'));
+    if(this.user == null){
        this.router.navigate(['/dashboard']);
     }
   }
 
   ngOnInit() {
 
+  }
+
+  canSave(event){
+    this.buttonEnable = true;
   }
 
 }

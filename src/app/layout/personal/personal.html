@@ -1,15 +1,20 @@
 <div class="container">
   <h2>My personal information</h2>
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="maury_empoli@cloud.com" disabled>
-  </mat-form-field><br>
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="admin" disabled>
-  </mat-form-field><br>
+  <mat-label>Email</mat-label>
+  <mat-form-field (change)="canSave($event)" class="example-full-width">
+    <input matInput placeholder="{{user.email}}" disabled>
+  </mat-form-field><br><br>
+  <mat-label>Username</mat-label>
+  <mat-form-field (change)="canSave($event)" class="example-full-width">
+    <input matInput placeholder="{{user.username}}" disabled>
+  </mat-form-field><br><br>
+  <mat-label>Password</mat-label>
+  <mat-form-field (change)="canSave($event)" class="example-full-width">
+    <input matInput placeholder="{{user.password}}" type="password" value="pippo" >
+  </mat-form-field><br><br>
+  <button mat-button [disabled]="!buttonEnable">Save</button>
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="password" type="password" value="pippo" >
-  </mat-form-field><br>
+
 
   </div>

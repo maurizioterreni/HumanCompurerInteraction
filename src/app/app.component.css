@@ -17,7 +17,7 @@
 .container {
   margin: 0 auto -100px;
   height: 100%;
-  overflow: auto;a
+  overflow: auto;
   margin-left: 5px;
 }
 
@@ -55,5 +55,6 @@
 
 .content{
   height: -webkit-fill-available;
-  padding-top: 30px;
+  padding-top: 45px;
+  padding-bottom: 45px;
 }

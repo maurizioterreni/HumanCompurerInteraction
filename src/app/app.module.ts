@@ -22,6 +22,7 @@ import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherst
 import { LoginComponent } from './layout/login/login.component';
 import { PersonalComponent } from './layout/personal/personal.component';
 import { AlertModule } from 'ngx-alerts';
+import { CookieLawModule } from 'angular2-cookie-law';
 
 
 import { AgmCoreModule } from '@agm/core';
@@ -55,7 +56,8 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     AlertModule.forRoot(),
     AgmCoreModule.forRoot({apiKey: 'AIzaSyB9t2Ki03ItPGImdj2sro-hMyBcQEsnloc'}),
-    MaterialModule
+    MaterialModule,
+    CookieLawModule
   ],
   providers: [],
   entryComponents: [DialogMaps, DialogChart],
