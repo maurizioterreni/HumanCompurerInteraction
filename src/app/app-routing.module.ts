@@ -6,6 +6,7 @@ import { SensorComponent } from './layout/sensor/sensor.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
 import { LoginComponent } from './layout/login/login.component';
 import { PersonalComponent } from './layout/personal/personal.component';
+import { MyWeatherStationComponent } from './layout/myWeatherStation/myWeatherStation.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'weatherstationMap',
     component: WeatherStationMapComponent,
+  },
+  {
+    path: 'myWeather',
+    component: MyWeatherStationComponent,
   },
   {
     path: 'login',

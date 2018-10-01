@@ -21,6 +21,7 @@ import { DialogChart } from './dialogs/chart/dialogChart.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
 import { LoginComponent } from './layout/login/login.component';
 import { PersonalComponent } from './layout/personal/personal.component';
+import { MyWeatherStationComponent } from './layout/myWeatherStation/myWeatherStation.component';
 import { AlertModule } from 'ngx-alerts';
 import { CookieLawModule } from 'angular2-cookie-law';
 
@@ -44,7 +45,8 @@ import { AppComponent } from './app.component';
     DialogMaps,
     DialogChart,
     LoginComponent,
-    PersonalComponent
+    PersonalComponent,
+    MyWeatherStationComponent
   ],
   imports: [
     BrowserModule,
