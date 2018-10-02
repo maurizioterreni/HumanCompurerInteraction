@@ -60,6 +60,38 @@ svg:not(:root){overflow:hidden;}
 
 .daylightElement{text-align: -webkit-center; margin-top: 31px;margin-left: 40px;}
 
+
+@media (min-width: 1251px) {
+  .daylightElement {
+      margin-left: -11px;
+  }
+}
+
+
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .daylightElement {
+      margin-left: 40px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .daylightElement {
+      margin-left: 9px;
+  }
+}
+
+@media (min-width: 691px) and (max-width: 800px) {
+  .daylightElement {
+      margin-left: -2px;
+  }
+}
+
+@media (max-width: 690px) {
+    .daylightElement {
+        margin-left: -11px;
+    }
+}
+
 @font-face{
   font-family:weathericons;
   src:url('/assets/fonts/weathericons-regular-webfont.eot') format("eot"),url('/assets/fonts/weathericons-regular-webfont.woff') format("woff"),url('/assets/fonts/weathericons-regular-webfont.ttf') format("truetype");

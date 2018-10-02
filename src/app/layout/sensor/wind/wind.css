@@ -50,3 +50,35 @@
 
 
 .windElement{text-align: -webkit-center; margin-top: 31px; margin-left: 40px;}
+
+
+@media (min-width: 1251px) {
+  .windElement {
+      margin-left: -11px;
+  }
+}
+
+
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .windElement {
+      margin-left: 40px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .windElement {
+      margin-left: 9px;
+  }
+}
+
+@media (min-width: 691px) and (max-width: 800px) {
+  .windElement {
+      margin-left: -2px;
+  }
+}
+
+@media (max-width: 690px) {
+    .windElement {
+        margin-left: -11px;
+    }
+}

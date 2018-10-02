@@ -50,3 +50,35 @@ svg:not(:root){overflow:hidden;}
 
 
 .temperatureElement{text-align: -webkit-center; margin-top: 31px;margin-left: 40px;}
+
+
+@media (min-width: 1251px) {
+  .temperatureElement {
+      margin-left: -11px;
+  }
+}
+
+
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .temperatureElement {
+      margin-left: 40px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .temperatureElement {
+      margin-left: 9px;
+  }
+}
+
+@media (min-width: 691px) and (max-width: 800px) {
+  .temperatureElement {
+      margin-left: -2px;
+  }
+}
+
+@media (max-width: 690px) {
+    .temperatureElement {
+        margin-left: -11px;
+    }
+}

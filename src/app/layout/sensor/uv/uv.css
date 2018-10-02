@@ -66,3 +66,36 @@ a{font-weight:600;font-size:1em;color:#aaa;text-rendering:optimizeLegibility;-we
   margin-top: 31px;
   margin-left: 40px;
 }
+
+
+
+@media (min-width: 1251px) {
+  .uvElement {
+      margin-left: -11px;
+  }
+}
+
+
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .uvElement {
+      margin-left: 40px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .uvElement {
+      margin-left: 9px;
+  }
+}
+
+@media (min-width: 691px) and (max-width: 800px) {
+  .uvElement {
+      margin-left: -2px;
+  }
+}
+
+@media (max-width: 690px) {
+    .uvElement {
+        margin-left: -11px;
+    }
+}

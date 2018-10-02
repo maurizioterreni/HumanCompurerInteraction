@@ -87,3 +87,34 @@ a{font-weight:400;}
 .thearrow4{-webkit-transform:rotate(81.5deg);-moz-transform:rotate(81.5deg);-o-transform:rotate(81.5deg);-ms-transform:rotate(81.5deg);transform:rotate(81.5deg);position:absolute;z-index:200;top:0;left:43%;margin-left:-6px;width:10px;height:50%;-webkit-transform-origin:50% 100%;-moz-transform-origin:50% 100%;-o-transform-origin:50% 100%;-ms-transform-origin:50% 100%;transform-origin:50% 100%;}
 
 .pressureElement{text-align: -webkit-center; margin-top: 31px;margin-left: 40px;}
+
+@media (min-width: 1251px) {
+  .pressureElement {
+      margin-left: -11px;
+  }
+}
+
+
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .pressureElement {
+      margin-left: 40px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .pressureElement {
+      margin-left: 9px;
+  }
+}
+
+@media (min-width: 691px) and (max-width: 800px) {
+  .pressureElement {
+      margin-left: -2px;
+  }
+}
+
+@media (max-width: 690px) {
+    .pressureElement {
+        margin-left: -11px;
+    }
+}

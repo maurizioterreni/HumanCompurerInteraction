@@ -33,3 +33,35 @@
   margin-top: 31px;
   margin-left: 40px;
 }
+
+
+@media (min-width: 1251px) {
+  .rainElement {
+      margin-left: -11px;
+  }
+}
+
+
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .rainElement {
+      margin-left: 40px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .rainElement {
+      margin-left: 9px;
+  }
+}
+
+@media (min-width: 691px) and (max-width: 800px) {
+  .rainElement {
+      margin-left: -2px;
+  }
+}
+
+@media (max-width: 690px) {
+    .rainElement {
+        margin-left: -11px;
+    }
+}
