@@ -1,4 +1,6 @@
 export class User {
+  username: String;
+  password: String;
   mail: String;
 	weatherId: String;
 	token: String;
