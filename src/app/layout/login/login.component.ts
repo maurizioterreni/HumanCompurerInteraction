@@ -62,6 +62,8 @@ export class LoginComponent implements OnInit {
                       this.alertService.danger('Wrong username or password');
                     }else if (error.status == 404){
                       this.alertService.danger('Page not found');
+                    }else if (error.status == 500 || error.status == 0){
+                      this.alertService.danger('Internal Server Error');
                     }
               //        console.log({ type: 'error', message: error.statusText });
                   //}

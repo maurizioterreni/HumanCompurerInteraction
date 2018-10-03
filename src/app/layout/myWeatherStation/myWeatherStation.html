@@ -1,5 +1,8 @@
 <div class="container">
   <h2>My WeatherStation</h2>
 
-  
+  <div *ngIf="user.weatherId == null" class="newWeatehrCard">
+    <span>you do not have a weather station, create a new one!</span><br/><br/>
+    <button mat-button (click)="openCreateForm()"><i class="material-icons">add_to_queue</i>New weather station</button>
+  </div>
 </div>
