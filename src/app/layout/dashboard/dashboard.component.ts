@@ -39,12 +39,7 @@ export class DashboardComponent implements OnInit {
           }else if(error.status == 0){
             this.alertService.danger('Can\'t connect to server');
           }
-
-          console.log(error);
-    //        console.log({ type: 'error', message: error.statusText });
-        //}
       });
-    //this.weatherstations = this.weatherStationService.getAllWeathrStation();
   }
 
   isLiked(weatherId){

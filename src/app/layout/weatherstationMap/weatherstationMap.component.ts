@@ -3,6 +3,7 @@ import { WeatherStationService } from '../../services/weatherstation/weatherstat
 import { WeatherStation } from '../../models/weatherstation/weatherstation';
 import { Marker } from './marker';
 import { MouseEvent } from '@agm/core';
+import { AlertService } from 'ngx-alerts';
 
 @Component({
   selector: 'weatherstationMap-map',
@@ -17,10 +18,10 @@ export class WeatherStationMapComponent  implements OnInit {
   lat : number;
   lng : number;
 
-  constructor(private weatherStationService: WeatherStationService) {
+  constructor(private alertService: AlertService, private weatherStationService: WeatherStationService) {
     this.weatherstations = [];
     this.markers = [];
-    this.findMe();
+  //  this.findMe();
   }
 
   ngOnInit() {
@@ -29,6 +30,17 @@ export class WeatherStationMapComponent  implements OnInit {
         this.weatherstations = response;
         this.addMarker();
       });
+
+    if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            this.lat = position.coords.latitude;
+            this.lng = position.coords.longitude;
+          });
+      } else {
+          this.lat = 43.71893;
+          this.lng = 10.95459;
+          this.alertService.info('Can\'t get geolocation!');
+    }
   }
 
   addMarker() {
@@ -43,7 +55,7 @@ export class WeatherStationMapComponent  implements OnInit {
 
   }
 
-  findMe() {
+/*  findMe() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.lat = position.coords.latitude;
@@ -54,6 +66,6 @@ export class WeatherStationMapComponent  implements OnInit {
       this.lng = 11.255814;
       alert("Geolocation is not supported by this browser.");
     }
-  }
+  }*/
 
 }

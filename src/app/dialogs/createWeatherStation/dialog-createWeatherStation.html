@@ -1,0 +1,31 @@
+<mat-dialog-content class="accent-color">
+  <h1>Create new WeatherStation</h1>
+  <form class="create-weather-station-form" (submit)="createSensor($event)">
+    <div>
+      <mat-form-field  class="create-weather-station-width">
+        <input matInput #title placeholder="The Title of your WeatherStation" (keyup.enter)="addTitle(title.value)" (blur)="addTitle(title.value)" maxlength="50">
+      </mat-form-field>
+      <mat-form-field  class="create-weather-station-width">
+        <input matInput placeholder="Url of Your WeatherStation's image" #url (keyup.enter)="addUrl(url.value)" (blur)="addUrl(url.value)" maxlength="250">
+      </mat-form-field>
+      <p  class="create-weather-station-width">Drag the marker to choose the location of your weather station</p>
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+        <agm-marker (markerClick)="clickedMarker()"
+                [latitude]="lat"
+                [longitude]="lng"
+                [label]="you"
+                [markerDraggable]="true"
+                (dragEnd)="markerDragEnd($event)">
+                <agm-info-window>
+                  <strong>Drag the marker to choose the location of your weather station</strong>
+                </agm-info-window>
+        </agm-marker>
+      </agm-map>
+
+    </div>
+    <div class="create-weather-station-width">
+      <button mat-button>Create</button>
+      <button mat-button color="warn" (click)="close()">Cancel</button>
+    </div>
+  </form>
+</mat-dialog-content>

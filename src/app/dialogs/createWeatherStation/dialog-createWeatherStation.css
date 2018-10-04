@@ -1,0 +1,16 @@
+.create-weather-station-form{
+  min-width: 100px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.create-weather-station-width{
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+agm-map {
+  height: 300px;
+}

@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DialogMaps } from './dialogs/map/dialogMap.component';
 import { DialogChart } from './dialogs/chart/dialogChart.component';
-import { DialogCreateWeatherStation } from './dialogs/createWeatherStation/dialogCreateWeatherStation.component';
+import { DialogCreateWeatherStation } from './dialogs/createWeatherStation/dialog-createWeatherStation.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
 import { LoginComponent } from './layout/login/login.component';
 import { PersonalComponent } from './layout/personal/personal.component';
@@ -64,7 +64,7 @@ import { AppComponent } from './app.component';
     CookieLawModule
   ],
   providers: [],
-  entryComponents: [DialogMaps, DialogChart],
+  entryComponents: [DialogMaps, DialogChart, DialogCreateWeatherStation],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

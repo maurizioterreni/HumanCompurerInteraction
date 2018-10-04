@@ -104,3 +104,5 @@ testem.log
 Thumbs.db
 dist
 dist/*
+package-lock.json
+package.json

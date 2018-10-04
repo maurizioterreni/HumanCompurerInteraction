@@ -20,7 +20,7 @@ export class AuthenticationService {
 
                     //this.getLoggedIn.emit(user);
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    sessionStorage.setItem('currentUser', JSON.stringify(user));
                     location.reload(true);
                 }
 
@@ -30,7 +30,7 @@ export class AuthenticationService {
 
     logout() {
         // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        sessionStorage.removeItem('currentUser');
 
     }
 }
