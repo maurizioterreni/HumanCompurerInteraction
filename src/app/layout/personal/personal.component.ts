@@ -14,14 +14,16 @@ export class PersonalComponent implements OnInit {
   buttonEnable = false;
 
   constructor(private router: Router) {
-    this.user = JSON.parse(sessionStorage.getItem('currentUser'));
-    if(this.user == null){
-       this.router.navigate(['/dashboard']);
-    }
+
   }
 
   ngOnInit() {
+    this.user = JSON.parse(sessionStorage.getItem('currentUser'));
 
+    if(this.user == null){
+      console.log('null');
+       this.router.navigate(['/dashboard']);
+    }
   }
 
   canSave(event){

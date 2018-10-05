@@ -3,11 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { ServiceConfig } from '../serviceConfig';
 import { User } from '../../models/user/user';
-import { BehaviorSubject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class AuthenticationService {
     private serviceConf : ServiceConfig;
+
+    private user:User;
+
+
+    private userSubject = new Subject<any>;
+
     constructor(private http: HttpClient) {
       this.serviceConf = new ServiceConfig();
     }
@@ -20,17 +26,26 @@ export class AuthenticationService {
 
                     //this.getLoggedIn.emit(user);
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    this.userSubject.next(user);
                     sessionStorage.setItem('currentUser', JSON.stringify(user));
-                    location.reload(true);
                 }
 
                 return user;
             }));
     }
 
+    setUserObservable(user) {
+     this.user = user;
+
+   }
+   getMessage(): Observable<any> {
+        return this.userSubject.asObservable();
+    }
+
     logout() {
         // remove user from local storage to log user out
         sessionStorage.removeItem('currentUser');
+        this.userSubject.next();
 
     }
 }
