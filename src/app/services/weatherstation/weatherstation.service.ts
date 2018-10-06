@@ -21,6 +21,15 @@ export class WeatherStationService {
     return this.http.get(this.serviceConf.getEndPoint() + 'weatherstation' , {headers});
 
    }
+
+   getWeathrStation(weatherId) {
+     const headers = new HttpHeaders()
+       .set('Content-Type', 'application/json');
+
+     return this.http.get(this.serviceConf.getEndPoint() + 'weatherstation/' + weatherId , {headers});
+
+    }
+
    createWeathrStation(user:User, titleName:string, urlImage:string, lat: string, lng:string) {
       const headers = new HttpHeaders()
         .set('Content-Type', 'application/json')
