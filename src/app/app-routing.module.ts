@@ -5,6 +5,7 @@ import { DashboardComponent } from './layout/dashboard/dashboard.component';
 import { SensorComponent } from './layout/sensor/sensor.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
 import { LoginComponent } from './layout/login/login.component';
+import { RegisterComponent } from './layout/register/register.component';
 import { PersonalComponent } from './layout/personal/personal.component';
 import { MyWeatherStationComponent } from './layout/myWeatherStation/myWeatherStation.component';
 
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: 'personal',

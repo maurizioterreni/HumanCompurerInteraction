@@ -12,7 +12,7 @@ export class AuthenticationService {
     private user:User;
 
 
-    private userSubject = new Subject<any>;
+    private userSubject = new Subject<any>();
 
     constructor(private http: HttpClient) {
       this.serviceConf = new ServiceConfig();
@@ -30,6 +30,14 @@ export class AuthenticationService {
                     sessionStorage.setItem('currentUser', JSON.stringify(user));
                 }
 
+                return user;
+            }));
+    }
+
+
+    register(username: string, password: string, email: string) {
+        return this.http.post<any>(this.serviceConf.getEndPoint() + 'registration', { username: username, password: password, email: email })
+            .pipe(map(user => {
                 return user;
             }));
     }

@@ -21,6 +21,7 @@ import { DialogChart } from './dialogs/chart/dialogChart.component';
 import { DialogCreateWeatherStation } from './dialogs/createWeatherStation/dialog-createWeatherStation.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
 import { LoginComponent } from './layout/login/login.component';
+import { RegisterComponent } from './layout/register/register.component';
 import { PersonalComponent } from './layout/personal/personal.component';
 import { MyWeatherStationComponent } from './layout/myWeatherStation/myWeatherStation.component';
 import { AlertModule } from 'ngx-alerts';
@@ -47,6 +48,7 @@ import { AppComponent } from './app.component';
     DialogCreateWeatherStation,
     DialogChart,
     LoginComponent,
+    RegisterComponent,
     PersonalComponent,
     MyWeatherStationComponent
   ],
