@@ -1,20 +1,33 @@
 <mat-dialog-content class="accent-color">
   <h1>Create new Sensor</h1>
-  <form class="create-sensor-form" (submit)="createSensor($event)">
+  <form [formGroup]="createSensorForm" class="create-sensor-form" (ngSubmit)="createSensor($event)">
 
     <mat-form-field class="create-sensor-form-width">
-      <input matInput #title placeholder="The Title of your Sensor" (keyup.enter)="addTitle(title.value)" (blur)="addTitle(title.value)" maxlength="50">
+      <input matInput placeholder="The Title of your Sensor" formControlName="title"
+             [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+      <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+        <mat-error *ngIf="f.title.errors.required">
+          Please enter a valid title
+        </mat-error>
+      </div>
     </mat-form-field>
 
     <mat-form-field class="create-sensor-form-width">
-      <mat-select placeholder="Chose sensor type" [(ngModel)]="selectedSensorKnowledge" name="-1">
+      <mat-select formControlName="sensorType" placeholder="Chose sensor type" [(ngModel)]="selectedSensorKnowledge" name="-1">
         <mat-option *ngFor="let sensorK of sensorKnowledges" [value]="sensorK.id">
           {{ sensorK.description }}
         </mat-option>
       </mat-select>
+      <div *ngIf="submitted && f.sensorType.errors" class="invalid-feedback">
+        <mat-error *ngIf="f.sensorType.errors.required">
+          Please enter a valid sensor type
+        </mat-error>
+      </div>
     </mat-form-field>
+
     <div class="create-sensor-form-width">
       <button mat-button>Create</button>
+      <button mat-button color="warn" (click)="close()">Cancel</button>
     </div>
   </form>
 </mat-dialog-content>

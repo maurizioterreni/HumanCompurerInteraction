@@ -16,7 +16,29 @@
     <mat-form-field (change)="canSave($event)" class="example-full-width">
       <input matInput value="{{weatherstation.image}}">
     </mat-form-field><br><br>
-    <button mat-button (click)="openCreateSensorForm()"><i class="material-icons">add_to_queue</i>Add Sensor</button><br><br>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            List Sensor
+          </mat-panel-title>
+          <mat-panel-description>
+            Show and edit your sensor property
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+          <tr class="head-table"><td>Title</td><td>Description</td><td>Action</td></tr>
+          <tr *ngFor="let sensor of sensors">
+            <td>{{sensor.description}}</td>
+            <td>{{sensor.title}}</td>
+            <td><button mat-button color="warn" (click)="deleteSensor(sensor.id)"><i class="material-icons">delete_forever</i></button></td>
+          </tr>
+          <tr><td></td><td style="text-align: center;"><button mat-button (click)="openCreateSensorForm()"><i class="material-icons">add_to_queue</i>Add Sensor</button></td><td></td></tr>
+        </table>
+        <br><br>
+      </mat-expansion-panel>
+    </mat-accordion><br><br>
+
     <button mat-button [disabled]="!buttonEnable">Save</button>
 
   </div>

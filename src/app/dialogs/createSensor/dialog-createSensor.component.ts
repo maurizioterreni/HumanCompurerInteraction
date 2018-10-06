@@ -3,10 +3,12 @@
  */
 import { Component, Input, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SensorKnowledge } from '../../models/sensorKnowledge/sensorKnowledge';
 import { UnitKnowledge } from '../../models/unitKnowledge/unitKnowledge';
 import { SensorService } from '../../services/sensor/sensor.service';
+import { SensorTypeKnowledge } from '../../services/sensorTypeKnowledge/sensorTypeKnowledge.service';
+
 import { User } from '../../models/user/user';
 
 
@@ -15,45 +17,57 @@ import { User } from '../../models/user/user';
   selector: 'app-dialog-createsensor',
   templateUrl: 'dialog-createSensor.html',
   styleUrls: ['dialog-createSensor.css'],
-  providers: [ SensorService ]
+  providers: [ SensorService, SensorTypeKnowledge ]
 })
 export class DialogCreateSensorComponent  implements OnInit {
   private user : User;
   // -----------------------------------------------------------------------//
-  sensorKnowledges: SensorKnowledge[];
-  selectedSensorKnowledge: string;
+  sensorKnowledges: SensorTypeKnowledge[];
   title: string;
+  createSensorForm: FormGroup;
 
   // -----------------------------------------------------------------------//
   constructor(
+    private sensorTypeKnowledge: SensorTypeKnowledge,
     private sensorService: SensorService,
+    private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<DialogCreateSensorComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
-
+      this.sensorKnowledges = [];
       this.user = data['user'];
   }
 
   ngOnInit() {
-    this.selectedSensorKnowledge = '0';
-  /*  this.sensorService.getAllSensorKnowledge()
-        .subscribe(sensorKnowledges => this.sensorKnowledges = sensorKnowledges);*/
+    this.createSensorForm = this.formBuilder.group({
+        title: ['', Validators.required],
+        sensorType: ['', Validators.required]
+    });
+    this.sensorTypeKnowledge.getAllsensorTypeKnowledge()
+        .subscribe((sensorKnowledges: SensorTypeKnowledge[]) => {this.sensorKnowledges = sensorKnowledges });
   }
 
-  createSensor(e){
-/*
-    this.sensorService.createSensor(this.selectedSensorKnowledge, this.title , this.user)
-    .subscribe(
-      res => {
-          this.dialogRef.close(true);
-        },
-        err => {
-          this.dialogRef.close(false);
-          //openSnackBar("User or Password wrong", "undo");
-
-      });*/
+  close(){
+    this.dialogRef.close({type: '-1'});
   }
 
-  addTitle(title: string): void{
-    this.title = title;
+
+  get f() { return this.createSensorForm.controls; }
+
+  createSensor(){
+
+    if (this.createSensorForm.invalid) {
+        return;
+    }
+
+    this.sensorService.createSensor(this.f.sensorType.value, this.f.title.value , this.user.weatherId, this.user.token)
+      .subscribe(
+        res => {
+            this.dialogRef.close({type: '200', sensor: res});
+          },
+          err => {
+            this.dialogRef.close({type: err.status});
+            //openSnackBar("User or Password wrong", "undo");
+
+        });
   }
 }

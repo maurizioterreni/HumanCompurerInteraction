@@ -20,4 +20,24 @@ export class SensorService {
 
     return this.http.get(this.serviceConf.getEndPoint() + 'sensor/weatherstation/' + weatherId, {headers});
   }
+
+  deleteSensor(sensorId, token) {
+    const headers = new HttpHeaders()
+        .set('Content-Type', 'application/json')
+        .set('token', token);
+
+    return this.http.delete(this.serviceConf.getEndPoint() + 'sensor/' + sensorId, {headers});
+  }
+
+  createSensor(sensorType, sensorTitle , weatherId, token){
+    const headers = new HttpHeaders()
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .set('token', token);
+
+
+
+    return this.http.post(this.serviceConf.getEndPoint() + 'sensor/',
+      JSON.stringify({ weatherId: weatherId, sensorTypeId: sensorType, title: sensorTitle }), {headers});
+  }
 }
