@@ -6,4 +6,18 @@
     <span>you do not have a weather station, create a new one!</span><br/><br/>
     <button mat-button (click)="openCreateForm()"><i class="material-icons">add_to_queue</i>New weather station</button>
   </div>
+
+  <div *ngIf="user.weatherId != null && weatherstation != null">
+    <mat-label>Title</mat-label>
+    <mat-form-field (change)="canSave($event)" class="example-full-width">
+      <input matInput value="{{weatherstation.description}}">
+    </mat-form-field><br><br>
+    <mat-label>Url</mat-label>
+    <mat-form-field (change)="canSave($event)" class="example-full-width">
+      <input matInput value="{{weatherstation.image}}">
+    </mat-form-field><br><br>
+    <button mat-button (click)="openCreateSensorForm()"><i class="material-icons">add_to_queue</i>Add Sensor</button><br><br>
+    <button mat-button [disabled]="!buttonEnable">Save</button>
+
+  </div>
 </div>

@@ -19,6 +19,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DialogMaps } from './dialogs/map/dialogMap.component';
 import { DialogChart } from './dialogs/chart/dialogChart.component';
 import { DialogCreateWeatherStation } from './dialogs/createWeatherStation/dialog-createWeatherStation.component';
+import { DialogCreateSensorComponent } from './dialogs/createSensor/dialog-createSensor.component';
 import { WeatherStationMapComponent } from './layout/weatherstationMap/weatherstationMap.component';
 import { LoginComponent } from './layout/login/login.component';
 import { RegisterComponent } from './layout/register/register.component';
@@ -47,6 +48,7 @@ import { AppComponent } from './app.component';
     DialogMaps,
     DialogCreateWeatherStation,
     DialogChart,
+    DialogCreateSensorComponent,
     LoginComponent,
     RegisterComponent,
     PersonalComponent,
@@ -66,7 +68,7 @@ import { AppComponent } from './app.component';
     CookieLawModule
   ],
   providers: [],
-  entryComponents: [DialogMaps, DialogChart, DialogCreateWeatherStation],
+  entryComponents: [DialogMaps, DialogChart, DialogCreateWeatherStation, DialogCreateSensorComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
