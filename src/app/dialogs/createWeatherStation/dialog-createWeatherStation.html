@@ -1,12 +1,24 @@
 <mat-dialog-content class="accent-color">
   <h1>Create new WeatherStation</h1>
-  <form class="create-weather-station-form" (submit)="createSensor($event)">
+  <form [formGroup]="createWtForm" class="create-weather-station-form"  (ngSubmit)="createSensor()">
     <div>
-      <mat-form-field  class="create-weather-station-width">
-        <input matInput #title placeholder="The Title of your WeatherStation" (keyup.enter)="addTitle(title.value)" (blur)="addTitle(title.value)" maxlength="50">
+      <mat-form-field class="create-weather-station-width">
+        <input matInput placeholder="The Title of your WeatherStation" formControlName="title"
+               [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+          <mat-error *ngIf="f.title.errors.required">
+            Please enter a valid title
+          </mat-error>
+        </div>
       </mat-form-field>
-      <mat-form-field  class="create-weather-station-width">
-        <input matInput placeholder="Url of Your WeatherStation's image" #url (keyup.enter)="addUrl(url.value)" (blur)="addUrl(url.value)" maxlength="250">
+      <mat-form-field class="create-weather-station-width">
+        <input matInput placeholder="Url of Your WeatherStation's image" formControlName="url"
+               [ngClass]="{ 'is-invalid': submitted && f.url.errors }">
+        <div *ngIf="submitted && f.url.errors" class="invalid-feedback">
+          <mat-error *ngIf="f.url.errors.required">
+            Please enter a valid url
+          </mat-error>
+        </div>
       </mat-form-field>
       <p  class="create-weather-station-width">Drag the marker to choose the location of your weather station</p>
       <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
