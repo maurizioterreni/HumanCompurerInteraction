@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.0.0",
   "scripts": {
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=dist/assets/logo.png --prune=true --out=release-builds",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -30,6 +31,7 @@
     "@angular/router": "^6.0.3",
     "angular-alert-module": "^2.0.3",
     "angular2-cookie-law": "^6.0.4",
+    "asar": "^0.14.5",
     "chart.js": "^2.7.2",
     "core-js": "^2.5.5",
     "hammerjs": "^2.0.8",
