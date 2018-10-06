@@ -1,8 +1,9 @@
 {
-  "name": "frontend",
+  "name": "MyWeatherStation",
   "version": "0.0.0",
   "scripts": {
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=dist/assets/logo.png --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=dist/assets/logo.png --prune=true --out=release-builds",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -49,7 +50,7 @@
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
     "electron": "^2.0.8",
-    "electron-packager": "^12.1.2",
+    "electron-packager": "^12.2.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^3.0.0",
