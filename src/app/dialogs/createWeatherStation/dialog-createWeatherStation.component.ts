@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { WeatherStationService } from '../../services/weatherstation/weatherstation.service';
 import { User } from '../../models/user/user';
 import { WeatherStation } from '../../models/weatherstation/weatherstation';
