@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 @Component({
   templateUrl: 'login.html',
   styleUrls: ['login.css'],
-  providers: [ AlertService, AuthenticationService ]
+  providers: [ AlertService ]
 })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
+
                     this.router.navigate([this.returnUrl]);
                     //location.reload(true);
                 },

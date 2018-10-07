@@ -11,21 +11,34 @@ import { User } from './models/user/user';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ AuthenticationService ]
+  providers: [ ]
 })
 export class AppComponent  implements OnInit {
   user: User;
+  subscription: Subscription;
   constructor(private authenticationService: AuthenticationService) {
     //this.user = JSON.parse(sessionStorage.getItem('currentUser'));
     //authenticationService.getMessage().subscribe((user: User) => { this.user = user; console.log(user); });
-    authenticationService.currentUserSubject.subscribe(currentUser => {
+    /*authenticationService.currentUserSubject.subscribe(currentUser => {
       this.user = currentUser;
       console.log(this.user);
+    });*/
+    this.subscription = this.authenticationService.getMessage().subscribe(message => {
+      //console.log(message);
+      if(message){
+        this.user = message.user;
+      }
+
     });
   }
 
   ngOnInit() {
 
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
   }
 
   public getTitle(){
@@ -43,6 +56,6 @@ export class AppComponent  implements OnInit {
   public logout(){
     this.user = null;
     this.authenticationService.logout();
-    location.reload(true);
+    //location.reload(true);
   }
 }

@@ -25,6 +25,7 @@ export class DialogCreateSensorComponent  implements OnInit {
   sensorKnowledges: SensorTypeKnowledge[];
   title: string;
   createSensorForm: FormGroup;
+  submitted = false;
 
   // -----------------------------------------------------------------------//
   constructor(
@@ -54,7 +55,7 @@ export class DialogCreateSensorComponent  implements OnInit {
   get f() { return this.createSensorForm.controls; }
 
   createSensor(){
-
+    this.submitted = true;
     if (this.createSensorForm.invalid) {
         return;
     }

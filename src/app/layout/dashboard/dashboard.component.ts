@@ -6,7 +6,7 @@ import { WeatherStation } from '../../models/weatherstation/weatherstation';
 import { DialogMaps } from '../../dialogs/map/dialogMap.component';
 import { Observable, Subject, BehaviorSubject  } from 'rxjs';
 import { AlertService } from 'ngx-alerts';
-
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 
 /**
@@ -24,7 +24,9 @@ export class DashboardComponent implements OnInit {
   weatherstations: WeatherStation[];
   checked = false;
 
-  constructor(private alertService: AlertService, private weatherStationService: WeatherStationService, public dialog: MatDialog){
+  constructor(private alertService: AlertService,
+    private weatherStationService: WeatherStationService,
+    public dialog: MatDialog){
     this.weatherstations = [];
   }
 

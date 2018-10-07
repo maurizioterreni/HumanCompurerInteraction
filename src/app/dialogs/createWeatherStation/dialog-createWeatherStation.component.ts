@@ -15,6 +15,7 @@ export class DialogCreateWeatherStation implements OnInit {
   private user : User;
   zoom: number = 15;
   createWtForm: FormGroup;
+  submitted = false;
 
   // initial center position for the map
   lat: number = 43.71893;
@@ -62,7 +63,7 @@ export class DialogCreateWeatherStation implements OnInit {
   }
 
   createSensor(){
-    console.log(this.createWtForm);
+    this.submitted = true;
     // stop here if form is invalid
     if (this.createWtForm.invalid) {
         return;

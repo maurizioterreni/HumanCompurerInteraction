@@ -11,7 +11,7 @@ export class AuthenticationService {
     private serviceConf : ServiceConfig;
 
     private user:User;
-    currentUserSubject = new Subject<User>();
+    private subject = new Subject<any>();
 
     constructor(private http: HttpClient) {
       this.serviceConf = new ServiceConfig();
@@ -25,7 +25,8 @@ export class AuthenticationService {
 
                     //this.getLoggedIn.emit(user);
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    this.currentUserSubject.next(user);
+                  //  this.currentUserSubject.next(user);
+                    this.subject.next({ user: user });
                     sessionStorage.setItem('currentUser', JSON.stringify(user));
                 }
 
@@ -37,6 +38,14 @@ export class AuthenticationService {
       return JSON.parse(sessionStorage.getItem('currentUser'));
     }
 
+    clearMessage() {
+        this.subject.next();
+    }
+
+    getMessage(): Observable<any> {
+        return this.subject.asObservable();
+    }
+
     register(username: string, password: string, email: string) {
         return this.http.post<any>(this.serviceConf.getEndPoint() + 'registration', { username: username, password: password, email: email })
             .pipe(map(user => {
@@ -44,18 +53,15 @@ export class AuthenticationService {
             }));
     }
 
-    setUserObservable(user) {
-     this.user = user;
-
-   }
-   getMessage(): Observable<any> {
-        return this.currentUserSubject.asObservable();
+    sendMessage(message: string) {
+        this.subject.next({ text: message });
     }
+
 
     logout() {
         // remove user from local storage to log user out
         sessionStorage.removeItem('currentUser');
-        this.currentUserSubject.next();
+        this.clearMessage();
 
     }
 }
