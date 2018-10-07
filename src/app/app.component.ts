@@ -16,8 +16,12 @@ import { User } from './models/user/user';
 export class AppComponent  implements OnInit {
   user: User;
   constructor(private authenticationService: AuthenticationService) {
-    this.user = JSON.parse(sessionStorage.getItem('currentUser'));
-    authenticationService.getMessage().subscribe((user: User) => { this.user = user; console.log(user); });
+    //this.user = JSON.parse(sessionStorage.getItem('currentUser'));
+    //authenticationService.getMessage().subscribe((user: User) => { this.user = user; console.log(user); });
+    authenticationService.currentUserSubject.subscribe(currentUser => {
+      this.user = currentUser;
+      console.log(this.user);
+    });
   }
 
   ngOnInit() {

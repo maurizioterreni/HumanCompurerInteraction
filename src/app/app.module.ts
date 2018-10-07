@@ -27,6 +27,7 @@ import { PersonalComponent } from './layout/personal/personal.component';
 import { MyWeatherStationComponent } from './layout/myWeatherStation/myWeatherStation.component';
 import { AlertModule } from 'ngx-alerts';
 import { CookieLawModule } from 'angular2-cookie-law';
+import { AuthenticationService } from './services/authentication/authentication.service';
 
 
 import { AgmCoreModule } from '@agm/core';
@@ -67,8 +68,8 @@ import { AppComponent } from './app.component';
     MaterialModule,
     CookieLawModule
   ],
-  providers: [],
+  providers: [ AuthenticationService ],
   entryComponents: [DialogMaps, DialogChart, DialogCreateWeatherStation, DialogCreateSensorComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

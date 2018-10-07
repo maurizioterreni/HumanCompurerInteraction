@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
-                    location.reload(true);
+                    //location.reload(true);
                 },
                 error => {
                     if(error.status == 401){

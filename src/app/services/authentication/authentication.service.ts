@@ -5,14 +5,13 @@ import { ServiceConfig } from '../serviceConfig';
 import { User } from '../../models/user/user';
 import { Observable, Subject } from 'rxjs';
 
+
 @Injectable()
 export class AuthenticationService {
     private serviceConf : ServiceConfig;
 
     private user:User;
-
-
-    private userSubject = new Subject<any>();
+    currentUserSubject = new Subject<User>();
 
     constructor(private http: HttpClient) {
       this.serviceConf = new ServiceConfig();
@@ -26,7 +25,7 @@ export class AuthenticationService {
 
                     //this.getLoggedIn.emit(user);
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    this.userSubject.next(user);
+                    this.currentUserSubject.next(user);
                     sessionStorage.setItem('currentUser', JSON.stringify(user));
                 }
 
@@ -34,6 +33,9 @@ export class AuthenticationService {
             }));
     }
 
+    get currentUser() {
+      return JSON.parse(sessionStorage.getItem('currentUser'));
+    }
 
     register(username: string, password: string, email: string) {
         return this.http.post<any>(this.serviceConf.getEndPoint() + 'registration', { username: username, password: password, email: email })
@@ -47,13 +49,13 @@ export class AuthenticationService {
 
    }
    getMessage(): Observable<any> {
-        return this.userSubject.asObservable();
+        return this.currentUserSubject.asObservable();
     }
 
     logout() {
         // remove user from local storage to log user out
         sessionStorage.removeItem('currentUser');
-        this.userSubject.next();
+        this.currentUserSubject.next();
 
     }
 }
