@@ -8,6 +8,16 @@ function createWindow () {
   win = new BrowserWindow({
     width: 1280,
     height: 900,
+    center: true,
+    frame: false,
+    alwaysOnTop: true,
+    maximizable: false,
+    minimizable: false,
+    fullscreenable: false,
+    skipTaskbar: true,
+    titleBarStyle: 'hiddenInset',
+    vibrancy: 'dark',
+    show: false
     backgroundColor: '#ffffff',
     icon: `file://${basepath}/dist/assets/logo.png`
   })

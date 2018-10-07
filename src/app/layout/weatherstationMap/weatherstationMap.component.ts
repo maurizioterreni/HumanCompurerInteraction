@@ -46,6 +46,7 @@ export class WeatherStationMapComponent  implements OnInit {
   addMarker() {
     for(const wt of this.weatherstations){
       this.markers.push({
+        id: wt.id,
         lat: Number(wt.latitude),
         lng: Number(wt.longitude),
         label: wt.description,

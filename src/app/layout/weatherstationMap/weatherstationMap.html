@@ -8,7 +8,7 @@
         [longitude]="m.lng">
 
       <agm-info-window>
-        <strong>{{m.label}}</strong>
+        <strong>{{m.label}}<br><br><div style="text-align: center;"><a [routerLink]="['/sensor', m.id]">OPEN</a></div></strong> 
       </agm-info-window>
 
     </agm-marker>

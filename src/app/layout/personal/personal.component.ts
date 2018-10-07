@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { User } from '../../models/user/user';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
   selector: 'personal-card',
@@ -9,21 +11,34 @@ import { User } from '../../models/user/user';
   providers: [  ]
 })
 export class PersonalComponent implements OnInit {
-
+  subscription: Subscription;
   user: User;
   buttonEnable = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private authenticationService: AuthenticationService) {
+      this.subscription = this.authenticationService.getMessage().subscribe(message => {
+        //console.log(message);
+        if(message){
+          this.user = message.user;
+        }else{
+          this.router.navigate(['/dashboard']);
+        }
 
+      });
   }
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem('currentUser'));
 
     if(this.user == null){
-      console.log('null');
        this.router.navigate(['/dashboard']);
     }
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
   }
 
   canSave(event){

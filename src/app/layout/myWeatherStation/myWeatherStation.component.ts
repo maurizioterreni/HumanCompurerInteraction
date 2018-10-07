@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { User } from '../../models/user/user';
 import { Sensor } from '../../models/sensor/sensor';
 import { WeatherStation } from '../../models/weatherstation/weatherstation';
@@ -10,6 +11,7 @@ import { DialogCreateWeatherStation } from '../../dialogs/createWeatherStation/d
 import { DialogCreateSensorComponent } from '../../dialogs/createSensor/dialog-createSensor.component';
 import { DialogMaps } from '../../dialogs/map/dialogMap.component';
 import { AlertService } from 'ngx-alerts';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 
 @Component({
@@ -24,11 +26,13 @@ export class MyWeatherStationComponent implements OnInit {
   weatherstation: WeatherStation;
   buttonEnable = false;
   sensors: Sensor[];
+  subscription: Subscription;
 
   constructor(
     private router: Router,
     public dialog: MatDialog,
     private sensorService: SensorService,
+    private authenticationService: AuthenticationService,
     private weatherStationService: WeatherStationService,
     private alertService: AlertService) {
 
@@ -55,12 +59,28 @@ export class MyWeatherStationComponent implements OnInit {
       this.sensors = [];
       this.alertService.info('Create your weatehr station!');
     }
+
+    this.subscription = this.authenticationService.getMessage().subscribe(message => {
+      //console.log(message);
+      if(message){
+        this.user = message.user;
+      }else{
+        this.router.navigate(['/dashboard']);
+      }
+
+    });
   }
 
   deleteSensor(sensorId){
     this.sensorService.deleteSensor(sensorId, this.user.token)
       .subscribe();
   }
+
+
+    ngOnDestroy() {
+      // unsubscribe to ensure no memory leaks
+      this.subscription.unsubscribe();
+    }
 
 
   canSave(event){

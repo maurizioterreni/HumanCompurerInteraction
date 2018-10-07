@@ -82,10 +82,8 @@ export class DialogChart implements OnInit  {
 
 
   public changeChart(event: MatTabChangeEvent) {
-    console.log(event.index);
     this.sensorIndex = event.index;
     this.loadDataChart();
-
   }
 
 }
