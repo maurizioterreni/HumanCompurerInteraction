@@ -17,7 +17,7 @@ function createWindow () {
     skipTaskbar: true,
     titleBarStyle: 'hiddenInset',
     vibrancy: 'dark',
-    show: false
+    show: false,
     backgroundColor: '#ffffff',
     icon: `file://${basepath}/dist/assets/logo.png`
   })
