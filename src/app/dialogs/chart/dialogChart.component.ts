@@ -29,6 +29,11 @@ export class DialogChart implements OnInit  {
   }
 
 
+  dateSelected(){
+
+  }
+
+
   public loadDataChart(){
     this.measureService.getMeasure(this.sensors[this.sensorIndex].id)
       .subscribe((results : any[]) => {
