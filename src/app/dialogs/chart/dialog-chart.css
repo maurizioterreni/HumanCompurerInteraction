@@ -1,8 +1,59 @@
-.accent-color {
-  width: 600px;
-  height: 365px;
-}
+
 
 .chart{
   margin-top: 10px;
+  width: inherit;
+}
+
+
+
+
+
+@media (min-width: 1251px) {
+  .accent-color {
+    width: 980px;
+    height: 663px;
+  }
+
+}
+
+
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .accent-color {
+    width: 700px;
+    height: 450px;
+  }
+
+}
+
+@media (min-width: 801px) and (max-width: 1000px) {
+  .accent-color {
+    width: 600px;
+    height: 430px;
+  }
+
+}
+
+@media (min-width: 691px) and (max-width: 800px) {
+  .accent-color {
+    width: 500px;
+    height: 350px;
+  }
+
+}
+
+@media (min-width: 401px) and (max-width: 690px) {
+  .accent-color {
+    width: 280px;
+    height: 230px;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .accent-color {
+    width: 240px;
+    height: 210px;
+  }
+
 }

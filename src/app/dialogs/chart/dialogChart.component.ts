@@ -66,6 +66,12 @@ export class DialogChart implements OnInit  {
           xAxes: [{
             display: true,
             type: 'time',
+            distribution: 'linear',
+            ticks: {
+              autoSkip:true,
+              maxTicksLimit:10,
+              source: 'auto'
+            },
             time: {
               displayFormats: {
                 quarter: 'minute'
