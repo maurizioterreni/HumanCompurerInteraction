@@ -107,3 +107,5 @@ dist/*
 package-lock.json
 package.json
 /release-builds
+dist/index.html
+dist/3rdpartylicenses.txt

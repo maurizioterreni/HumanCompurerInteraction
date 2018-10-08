@@ -3,7 +3,7 @@
   "version": "0.3.13",
   "scripts": {
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=dist/assets/logo.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=dist/assets/logo.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --icon=dist/assets/logo.ico --prune=true --out=release-builds",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
