@@ -30,7 +30,24 @@ export class DialogChart implements OnInit  {
 
 
   dateSelected(){
+    this.measureService.getMeasureByDate(this.sensors[this.sensorIndex].id, 1536610516000, 1539202516000)
+      .subscribe((results : any[]) => {
+        this.quantityArray = [];
+        this.dateArray = [];
+        for (const i of results) {
+          let m = <Measure> i;
+        //  console.log(m);
+          let jsdate = new Date(m.dateTime);
+          this.quantityArray.push( m.quantity);
+          this.dateArray.push(m.dateTime);
+          //jsdate.toLocaleTimeString('it', { hour: 'numeric', minute: 'numeric'})
+        }
+        this.drawChart();
+    });
+  }
 
+  public onDate(event): void {
+    console.log(event);
   }
 
 

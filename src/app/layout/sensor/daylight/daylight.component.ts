@@ -20,6 +20,8 @@ export class DaylightCardComponent implements OnInit, OnChanges {
   constructor(private weatherStationService: WeatherStationService) {
     this.totalSun = 0;
     this.totalNight = 0;
+    this.sunrise = new Date(this.now);
+    this.sunset = new Date(this.now);
 
     setInterval(() => {
         this.now =  Date.now();
@@ -29,10 +31,14 @@ export class DaylightCardComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.weatherStationService.getWeathrStation(this.wtId)
-      .subscribe((response: WeatherStation[]) => {
-          let wt = <WeatherStation> response;
-          this.calculateSunriseSunset(wt.latitude,wt.longitude);
-      };
+    .subscribe((response: any) => {
+        let wt = <WeatherStation>response;
+        this.calculateSunriseSunset(wt.latitude, wt.longitude);
+      //  console.log(wt);
+    },
+    error => {
+      //  console.log(error);
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {

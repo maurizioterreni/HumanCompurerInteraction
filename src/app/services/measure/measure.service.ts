@@ -47,4 +47,12 @@ export class MeasureService {
 
     return this.http.get(this.serviceConf.getEndPoint() + 'measure/sensor/' + sensorId + '/getMeasure', {headers});
   }
+
+
+  getMeasureByDate(sensorId, fromDate, toDate) {
+    const headers = new HttpHeaders()
+        .set('Content-Type', 'application/json');
+
+    return this.http.get(this.serviceConf.getEndPoint() + 'measure/sensor/' + sensorId + '/getMeasure/' + fromDate + '/' + toDate, {headers});
+  }
 }
