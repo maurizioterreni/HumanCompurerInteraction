@@ -54,7 +54,7 @@ svg:not(:root){overflow:hidden;}
 
 @media (min-width: 1251px) {
   .temperatureElement {
-      margin-left: -11px;
+      margin-left: 100px;
   }
 }
 

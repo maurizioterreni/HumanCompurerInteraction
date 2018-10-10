@@ -90,7 +90,7 @@ a{font-weight:400;}
 
 @media (min-width: 1251px) {
   .pressureElement {
-      margin-left: -11px;
+      margin-left: 100px;
   }
 }
 

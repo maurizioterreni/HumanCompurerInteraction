@@ -63,7 +63,7 @@ svg:not(:root){overflow:hidden;}
 
 @media (min-width: 1251px) {
   .daylightElement {
-      margin-left: -11px;
+      margin-left: 100px;
   }
 }
 

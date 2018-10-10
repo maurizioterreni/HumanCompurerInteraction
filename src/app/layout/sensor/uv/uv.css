@@ -71,7 +71,7 @@ a{font-weight:600;font-size:1em;color:#aaa;text-rendering:optimizeLegibility;-we
 
 @media (min-width: 1251px) {
   .uvElement {
-      margin-left: -11px;
+      margin-left: 100px;
   }
 }
 
