@@ -13,11 +13,11 @@
       <div class="weather34i-rairate-bar">
         <div id="raincontainer">
           <div id="weather34rainbeaker">
-            <div id="weather34rainwater" style="height:1px;"></div>
+            <div id="weather34rainwater" style="height:1px;"  [style.height.px]="getRainRange()"></div>
           </div>
         </div>
       </div>
-      <div class="weather34todayraintext"><span class="oblue">0.00<br><span>mm</span></span> </div>
+      <div class="weather34todayraintext"><span class="oblue">{{rainValue}}<br><span>mm</span></span> </div>
 
   </div>
 
