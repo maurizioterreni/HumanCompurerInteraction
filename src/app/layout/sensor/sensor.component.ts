@@ -53,6 +53,10 @@ export class SensorComponent implements OnInit {
    });
   }
 
+  public getWeatherId(){
+    return this.id;
+  }
+
   public getSensors(templateId) : Sensor[] {
     let sensorArray = [];
     for (const i of this.sensors) {

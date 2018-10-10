@@ -1,11 +1,13 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Sensor } from '../../../models/sensor/sensor';
+import { WeatherStation } from '../../../models/weatherstation/weatherstation';
+import { WeatherStationService } from '../../../services/weatherstation/weatherstation.service';
 
 @Component({
   selector: 'daylight-card',
   templateUrl: './daylight.html',
   styleUrls: ['./daylight.css'],
-  providers: []
+  providers: [ WeatherStationService ]
 })
 export class DaylightCardComponent implements OnInit, OnChanges {
   now = Date.now();
@@ -13,17 +15,11 @@ export class DaylightCardComponent implements OnInit, OnChanges {
   sunrise : any;
   totalSun: any;
   totalNight: any;
+  @Input() wtId: String;
 
-  constructor() {
-    this.sunrise = new Date(this.now);
-    this.sunset = new Date(this.now);
+  constructor(private weatherStationService: WeatherStationService) {
     this.totalSun = 0;
     this.totalNight = 0;
-
-    this.calculateSunriseSunset(43.69489556632679,10.951802242615486);
-
-
-
 
     setInterval(() => {
         this.now =  Date.now();
@@ -32,7 +28,11 @@ export class DaylightCardComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-
+    this.weatherStationService.getWeathrStation(this.wtId)
+      .subscribe((response: WeatherStation[]) => {
+          let wt = <WeatherStation> response;
+          this.calculateSunriseSunset(wt.latitude,wt.longitude);
+      };
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -40,6 +40,8 @@ export class DaylightCardComponent implements OnInit, OnChanges {
   }
 
   private calculateSunriseSunset(latitude,longitude){
+    this.sunrise = new Date(this.now);
+    this.sunset = new Date(this.now);
     let localSunrise = this.calculateHour(latitude,longitude, true);
     let localSunset = this.calculateHour(latitude,longitude, false);
 
