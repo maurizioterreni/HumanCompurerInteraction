@@ -4,6 +4,7 @@ import { Sensor } from '../../models/sensor/sensor';
 import { Measure } from '../../models/measure/measure';
 import { MeasureService } from '../../services/measure/measure.service';
 import { Chart } from 'chart.js';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-dialog-chart',
@@ -16,6 +17,9 @@ export class DialogChart implements OnInit  {
   quantityArray: any[];
   dateArray: any[];
   sensorIndex = 0;
+  fromDate: Date;
+  toDate: Date;
+  buttonEnable = false;
   chart = []; // This will hold our chart info
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private measureService: MeasureService) {
     this.sensors = data['sensors'];
@@ -46,8 +50,15 @@ export class DialogChart implements OnInit  {
     });
   }
 
-  public onDate(event): void {
-    console.log(event);
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    if(type == 'fromDate'){
+      this.fromDate = new Date(event.value);
+      this.buttonEnable = true;
+    }else{
+      this.toDate = new Date(event.value);
+    }
+  //  console.log(this.fromDate);
+    console.log(this.toDate.getTime());
   }
 
 

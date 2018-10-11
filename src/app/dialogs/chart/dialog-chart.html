@@ -14,14 +14,14 @@
     <canvas id="canvas">{{ chart }}</canvas>
   </div>
   <mat-form-field>
-    <input matInput (selectedChanged)="onDate($event)" [matDatepicker]="fromDate" placeholder="Choose from date">
+    <input matInput (dateInput)="addEvent('fromDate', $event)" (dateChange)="addEvent('change', $event)" [matDatepicker]="fromDate" placeholder="Choose from date">
     <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
     <mat-datepicker #fromDate ></mat-datepicker>
   </mat-form-field>
   <mat-form-field>
-    <input matInput (selectedChanged)="onDate($event)" [matDatepicker]="toDate" placeholder="Choose to date">
+    <input matInput (dateInput)="addEvent('toDate', $event)" (dateChange)="addEvent('change', $event)" [matDatepicker]="toDate" placeholder="Choose to date">
     <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
-    <mat-datepicker #toDate></mat-datepicker> 
+    <mat-datepicker #toDate></mat-datepicker>
   </mat-form-field>
-  <button mat-button (click)="dateSelected()">Show</button>
+  <button mat-button [disabled]="!buttonEnable" (click)="dateSelected()">Show</button>
 </mat-dialog-content>
