@@ -34,7 +34,7 @@ export class DialogChart implements OnInit  {
 
 
   dateSelected(){
-    this.measureService.getMeasureByDate(this.sensors[this.sensorIndex].id, 1536610516000, 1539202516000)
+    this.measureService.getMeasureByDate(this.sensors[this.sensorIndex].id, this.fromDate.getTime(), this.toDate.getTime())
       .subscribe((results : any[]) => {
         this.quantityArray = [];
         this.dateArray = [];
@@ -58,7 +58,7 @@ export class DialogChart implements OnInit  {
       this.toDate = new Date(event.value);
     }
   //  console.log(this.fromDate);
-    console.log(this.toDate.getTime());
+//    console.log(this.toDate.getTime());
   }
 
 
