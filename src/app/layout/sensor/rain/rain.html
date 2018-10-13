@@ -6,8 +6,8 @@
 
       <div class="rainannual1">
         <div class="almanac">Almanac</div>
-        2018<br><span class="rainblue">461.3</span>&nbsp;<span class="raingrey">mm</span><br>Sep<br><span class="rainblue">85.7</span>&nbsp;<span class="raingrey">mm</span><br>
-        Yesterday<br><span class="rainblue">0.0</span>&nbsp;<span class="raingrey">mm</span>
+        2018<br><span class="rainblue">{{measureRainYear | number : '.0'}}</span>&nbsp;<span class="raingrey">mm</span><br>Sep<br><span class="rainblue">{{measureRainMonth | number : '.1'}}</span>&nbsp;<span class="raingrey">mm</span><br>
+        Yesterday<br><span class="rainblue">{{measureRainDay | number : '.1'}}</span>&nbsp;<span class="raingrey">mm</span>
       </div>
 
       <div class="weather34i-rairate-bar">
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="weather34todayraintext"><span class="oblue">{{rainValue}}<br><span>mm</span></span> </div>
+      <div class="weather34todayraintext"><span class="oblue">{{rainValue | number : '.1'}}<br><span>mm</span></span> </div>
 
   </div>
 

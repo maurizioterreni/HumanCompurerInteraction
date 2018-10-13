@@ -1,5 +1,6 @@
 a{text-decoration:none;}
 .moduletitle{font-size:12px;}
+.moduletitle{color:rgba(45,45,45,1);font-weight:400;position: relative;top: -30px;left: -16px;}
 .weather-item,a{-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;-o-font-smoothing:antialiased;-ms-font-smoothing:antialiased;}
 .weather-item,a{text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;}
 .weather-item,a{-moz-osx-font-smoothing:grayscale;}
@@ -119,6 +120,6 @@ a{font-weight:400;}
 
 @media (max-width: 690px) {
     .pressureElement {
-        margin-left: -11px;
+        margin-left: -16px;
     }
 }

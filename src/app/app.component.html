@@ -31,6 +31,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>{{getTitle()}}</span>
+      <div *ngIf="isLogIn()" class="user_icons"><a routerLink="personal" routerLinkActive="active" (click)="sidenav.close()"  mat-list-item><img src="../assets/images/profile.jpg" ></a></div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

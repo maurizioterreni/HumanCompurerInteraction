@@ -3,6 +3,7 @@
 .weather-item,a{-moz-osx-font-smoothing:grayscale;}
 a{text-decoration:none;}
 .moduletitle{font-size:12px;}
+.moduletitle{color:rgba(45,45,45,1);font-weight:400;position: relative;top: -30px;left: -16px;}
 *,:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}
 *,:after,:before{-o-box-sizing:border-box;}
 *,:after,:before{-ms-box-sizing:border-box;box-sizing:inherit;}
@@ -23,8 +24,6 @@ a{font-weight:600;font-size:1em;color:#aaa;text-rendering:optimizeLegibility;-we
 .updatedtime{width:75px;text-align:center;}
 .updatedtime{font:10px arial,sans-serif;margin-left:220px;color:#aaa;background:0;padding:3px;}
 .updatedtime{margin-top:-20px;line-height:10px;border-radius:3px;}
-.moduletitle{font-size:12px;}
-.moduletitle{color:#aaa;font-weight:600;}
 
 .chartforecast:hover,a:hover{color:#9aba2f;}
 
@@ -90,6 +89,6 @@ a{font-weight:600;font-size:1em;color:#aaa;text-rendering:optimizeLegibility;-we
 
 @media (max-width: 690px) {
     .uvElement {
-        margin-left: -11px;
+        margin-left: -16px;
     }
 }

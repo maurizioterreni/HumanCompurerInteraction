@@ -3,6 +3,7 @@
 .weather-item,a{-moz-osx-font-smoothing:grayscale;}
 a{text-decoration:none;}
 .moduletitle{font-size:12px;}
+.moduletitle{color:rgba(45,45,45,1);font-weight:400;position: relative;top: -30px;left: -16px;}
 *,:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;}
 *,:after,:before{-o-box-sizing:border-box;}
 *,:after,:before{-ms-box-sizing:border-box;box-sizing:inherit;}
@@ -14,8 +15,7 @@ a{text-decoration:none;}
 svg:not(:root){overflow:hidden;}
 /*.weather-item{width:320px;height:201px;border:1px solid #fff;border-bottom:18px solid #fff;-webkit-border-radius:4px;-o-border-radius:4px;-ms-border-radius:4px;border-radius:4px;font-size:1em;margin:0 5px 5px 0;padding:6px;background:#fff;}*/
 .weather-item{width:320px;height:201px;font-size:1em;margin:0 5px 5px 0;padding:6px;background:#fff;}
-.moduletitle{font-size:12px;}
-.moduletitle{color:#aaa;font-weight:600;}
+
 .daylightmoduleposition{position:relative;left:0;margin-top:1px;}
 .daylightcompass2>.daylightcompass-line2{-webkit-clip-path:polygon(100%0,100%100%,100%100%,0100%,00);-ms-clip-path:polygon(100%0,100%100%,100%100%,0100%,00);bottom:25px;}
 .daylightvalue1,.daylightvalue1 .minutes{font-family:weathertext,Helvetica,Arial;font-size:26px;line-height:20px;border:0;position:absolute;color:#aaa;}
@@ -91,7 +91,7 @@ svg:not(:root){overflow:hidden;}
 
 @media (max-width: 690px) {
     .daylightElement {
-        margin-left: -11px;
+        margin-left: -16px;
     }
 }
 
