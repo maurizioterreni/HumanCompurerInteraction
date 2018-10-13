@@ -46,8 +46,8 @@ export class RegisterComponent implements OnInit {
         if (this.registerForm.invalid) {
             return;
         }
-        this.alertService.info('Registration service temporarily disabled');
-/*
+
+
         this.authenticationService.register(this.f.username.value, this.f.password.value, this.f.email.value)
           .pipe(first())
           .subscribe(
@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
             //        console.log({ type: 'error', message: error.statusText });
                 //}
               });
-*/
+
 
     }
 }

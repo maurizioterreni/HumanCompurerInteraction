@@ -68,6 +68,8 @@ export class DialogCreateWeatherStation implements OnInit {
     if (this.createWtForm.invalid) {
         return;
     }
+    this.dialogRef.close({type: '2000'});
+    /*
     this.weatherStationService.createWeathrStation(this.user, this.f.title.value, this.f.url.value, ''+this.lat, ''+this.lng)
       .subscribe(
         res => {
@@ -77,5 +79,6 @@ export class DialogCreateWeatherStation implements OnInit {
         err => {
           this.dialogRef.close({type: err.status});
       });
+      */
   }
 }

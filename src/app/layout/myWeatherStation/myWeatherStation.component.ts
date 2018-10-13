@@ -131,6 +131,8 @@ export class MyWeatherStationComponent implements OnInit {
           this.user.weatherId = String(this.weatherstation.id);
           sessionStorage.setItem('currentUser', JSON.stringify(this.user));
           this.alertService.success('Created weather station');
+        }else if(result.type > 1000){
+          this.alertService.info('Service temporarily disabled');
         }else if(result.type < 0){
           this.alertService.info('Creation Weather station abort!');
         }
