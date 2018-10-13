@@ -1,8 +1,8 @@
 export class ServiceConfig {
-    private protocol = "http";
+    private protocol = "https";
     private host_prod = "80.211.86.68";
     private host_dev = "localhost";
-    private port = "8080";
+    private port = "8443";
     private url_pord = "WeatherApi/rest/1.0/";
     private url_dev = "WeatherSt-0.0.1-SNAPSHOT/rest/1.0/";
 
