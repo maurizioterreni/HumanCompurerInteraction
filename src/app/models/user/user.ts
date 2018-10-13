@@ -5,6 +5,6 @@ export class User {
 	weatherId: String;
 	token: String;
 	userRole: String;
-	unitMeasure: String;
-	weatherLikes: String;
+	unitMeasure: String[];
+	weatherLikes: String[];
 }

@@ -1,4 +1,10 @@
 <ngx-alerts></ngx-alerts>
+
+<div *ngIf="isLogIn()" class="checked_favorite">
+  <section class="example-section">
+        <mat-checkbox class="example-margin" [(ngModel)]="checked">Show only favorites</mat-checkbox>
+  </section>
+</div>
 <div class="container grid2x2">
   <div class="box" *ngFor="let weatherStation of weatherstations; let i = index">
     <div *ngIf="checked == false || (checked == true && isLiked(weatherStation.id)) ">
@@ -11,14 +17,16 @@
   					<mat-card-actions>
   						<button mat-button routerLinkActive="active" routerLink="/sensor/{{weatherStation.id}}/"> <i class="material-icons">near_me</i> Open</button>
   						<button mat-button (click)="openMap(weatherStation.longitude, weatherStation.latitude)"><i class="material-icons">my_location</i> MAP</button>
-  						<span *ngIf="isLiked(weatherStation.id) else no_favorite"><button mat-button *ngIf="user" (click)="weatherLike(weatherStation.id,true)"><i class="material-icons">favorite</i>Favorite</button></span>
-  						<ng-template #no_favorite><button mat-button *ngIf="user" (click)="weatherLike(weatherStation.id,false)"><i class="material-icons">favorite_border</i>Favorite</button></ng-template>
-  					</mat-card-actions>
+              <div *ngIf="isLogIn()" class="favorite_bt">
+                <span *ngIf="isLiked(weatherStation.id) else no_favorite"><button mat-icon-button color="warn" (click)="weatherLike(weatherStation.id,true)"><i class="material-icons">favorite</i></button></span>
+    						<ng-template #no_favorite><button mat-icon-button (click)="weatherLike(weatherStation.id,false)"><i class="material-icons">favorite_border</i></button></ng-template>
+              </div>
+            </mat-card-actions>
         </div>
 				</mat-card>
 		</div>
 	</div>
-  
+
   <div class="box" *ngIf="(weatherstations.length % 2) != 0 ">
     <div>
 			<mat-card class="card-blank" style="text-align:center;">

@@ -50,7 +50,14 @@ export class AppComponent  implements OnInit {
   }
 
   public isLogIn(){
-    return this.user != null;
+    if(this.user){
+      return true;
+    }
+    if(this.authenticationService.getCurrentUser()){
+      this.user = this.authenticationService.getCurrentUser();
+      return true;
+    }
+    return false;
   }
 
   public logout(){

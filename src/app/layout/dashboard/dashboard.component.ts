@@ -4,10 +4,12 @@ import { Environment } from '../../local/environment';
 import { WeatherStationService } from '../../services/weatherstation/weatherstation.service';
 import { WeatherStation } from '../../models/weatherstation/weatherstation';
 import { DialogMaps } from '../../dialogs/map/dialogMap.component';
-import { Observable, Subject, BehaviorSubject  } from 'rxjs';
+import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { Subscription } from 'rxjs';
 import { AlertService } from 'ngx-alerts';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
-
+import { UserService } from '../../services/user/user.service';
+import { User } from '../../models/user/user';
 
 /**
  * @title Multi-row toolbar
@@ -16,21 +18,32 @@ import { AuthenticationService } from '../../services/authentication/authenticat
   selector: 'dashboard-app',
   templateUrl: 'dashboard.html',
   styleUrls: ['dashboard.css'],
-  providers: [ AlertService, WeatherStationService ]
+  providers: [ AlertService,UserService, WeatherStationService ]
 })
 
 
 export class DashboardComponent implements OnInit {
   weatherstations: WeatherStation[];
   checked = false;
+  user: User;
+  subscription: Subscription;
 
   constructor(private alertService: AlertService,
     private weatherStationService: WeatherStationService,
+    private authenticationService: AuthenticationService,
+    private userService: UserService,
     public dialog: MatDialog){
     this.weatherstations = [];
-  }
+    this.user = this.authenticationService.getCurrentUser();
+    this.subscription = this.authenticationService.getMessage().subscribe(message => {
+      //console.log(message);
 
-  ngOnInit() {
+      if(message){
+        this.user = message.user;
+      }
+
+    });
+
     this.weatherStationService.getAllWeathrStation()
       .subscribe((response: WeatherStation[]) => {
           this.weatherstations = response;
@@ -44,7 +57,30 @@ export class DashboardComponent implements OnInit {
       });
   }
 
+  public isLogIn(){
+    if(this.user){
+      return true;
+    }
+    if(this.authenticationService.getCurrentUser()){
+      this.user = this.authenticationService.getCurrentUser();
+      return true;
+    }
+    return false;
+  }
+
+  ngOnInit() {
+
+  }
+
   isLiked(weatherId){
+    if(this.user == null){
+      return false;
+    }
+    for(const i of this.user.weatherLikes){
+      if(i == weatherId){
+        return true;
+      }
+    }
     return false;
   }
 
@@ -55,6 +91,34 @@ export class DashboardComponent implements OnInit {
           lng: longitude
         }
       });
+  }
+
+  weatherLike(weatherId, isLiked:boolean){
+
+    if(!isLiked){
+       this.userService.addWeatherLikes(this.user.token, weatherId)
+         .subscribe(
+             res => {
+               this.user = <User> res;
+
+               this.authenticationService.setCurrentUser(this.user);
+
+            },
+              err => {
+                console.log(err);
+              });
+     }else{
+       this.userService.removeWeatherLikes(this.user.token, weatherId)
+         .subscribe(
+             res => {
+               this.user = <User> res;
+
+               this.authenticationService.setCurrentUser(this.user);
+            },
+              err => {
+                console.log(err);
+          });
+     }
   }
 
 

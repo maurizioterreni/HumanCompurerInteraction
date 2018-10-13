@@ -9,8 +9,8 @@ export class ServiceConfig {
     constructor() {}
 
     public getEndPoint() : string{
-      //return this.getDevEndPoint();
-      return this.getProdEndPoint();
+      return this.getDevEndPoint();
+      //return this.getProdEndPoint();
     }
 
     private getDevEndPoint() : string{

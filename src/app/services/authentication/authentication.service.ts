@@ -22,7 +22,6 @@ export class AuthenticationService {
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.token) {
-
                     //this.getLoggedIn.emit(user);
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                   //  this.currentUserSubject.next(user);
@@ -34,8 +33,12 @@ export class AuthenticationService {
             }));
     }
 
-    get currentUser() {
+    getCurrentUser() {
       return JSON.parse(sessionStorage.getItem('currentUser'));
+    }
+
+    setCurrentUser(user:User){
+      sessionStorage.setItem('currentUser', JSON.stringify(user));
     }
 
     clearMessage() {
@@ -62,6 +65,6 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         sessionStorage.removeItem('currentUser');
         this.clearMessage();
-
+        this.subject.next({ user: null });
     }
 }
