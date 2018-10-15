@@ -15,6 +15,7 @@ export class RainCardComponent implements OnInit, OnChanges {
   measureRainYear: number;
   measureRainMonth: number;
   measureRainDay: number;
+  today = Date.now();
 
   constructor(private measureService: MeasureService) {
 

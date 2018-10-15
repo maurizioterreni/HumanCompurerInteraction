@@ -6,7 +6,8 @@
 
       <div class="rainannual1">
         <div class="almanac">Almanac</div>
-        2018<br><span class="rainblue">{{measureRainYear | number : '.0'}}</span>&nbsp;<span class="raingrey">mm</span><br>Sep<br><span class="rainblue">{{measureRainMonth | number : '.1'}}</span>&nbsp;<span class="raingrey">mm</span><br>
+        {{today | date: 'yyyy'}}<br><span class="rainblue">{{measureRainYear | number : '.0'}}</span>&nbsp;<span class="raingrey">mm</span><br>
+        {{today | date: 'MMM'}}.<br><span class="rainblue">{{measureRainMonth | number : '.1'}}</span>&nbsp;<span class="raingrey">mm</span><br>
         Yesterday<br><span class="rainblue">{{measureRainDay | number : '.1'}}</span>&nbsp;<span class="raingrey">mm</span>
       </div>
 

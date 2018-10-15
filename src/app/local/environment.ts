@@ -1,4 +1,4 @@
 export class Environment {
-  public static VERSION = 'beta 0.3.26';
+  public static VERSION = 'beta 0.3.27';
   public static TITLE =  "My WeatherStation";
 }
