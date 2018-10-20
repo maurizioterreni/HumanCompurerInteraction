@@ -10,12 +10,12 @@
     <div *ngIf="checked == false || (checked == true && isLiked(weatherStation.id)) ">
 			<mat-card class="weatherstation-card" style="text-align:center;">
         <div class="weatherstation-card-content">
-            <div class="weatherstation-card-content-image"><img mat-card-image src="{{weatherStation.image}}"></div>
+            <div class="weatherstation-card-content-image"><a  routerLinkActive="active" routerLink="/sensor/{{weatherStation.id}}/" ><img mat-card-image src="{{weatherStation.image}}"></a></div>
   					<mat-card-content>
   						<p>{{weatherStation.description}}</p>
   					</mat-card-content>
   					<mat-card-actions>
-  						<button mat-button routerLinkActive="active" routerLink="/sensor/{{weatherStation.id}}/"> <i class="material-icons">near_me</i> Open</button>
+  						<button mat-button routerLinkActive="active" routerLink="/sensor/{{weatherStation.id}}/"> <i class="material-icons">widgets</i> Sensor</button>
   						<button mat-button (click)="openMap(weatherStation.longitude, weatherStation.latitude)"><i class="material-icons">my_location</i> MAP</button>
               <div *ngIf="isLogIn()" class="favorite_bt">
                 <span *ngIf="isLiked(weatherStation.id) else no_favorite"><button mat-icon-button color="warn" (click)="weatherLike(weatherStation.id,true)"><i class="material-icons">favorite</i></button></span>
